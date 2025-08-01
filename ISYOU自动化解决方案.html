@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影刀RPA - 企业自动化智能解决方案</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #1a6dcc;
+            --primary-dark: #0d4a9e;
+            --secondary: #ff6b35;
+            --light: #f0f7ff;
+            --dark: #2c3e50;
+            --gray: #666;
+            --white: #ffffff;
+        }
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: linear-gradient(120deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 30px 0 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 48px;
+            margin-bottom: 15px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 22px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            background: #ff5722;
+        }
+        
+        .header-animation {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23f0f7ff" fill-opacity="1" d="M0,192L60,181.3C120,171,240,149,360,160C480,171,600,213,720,213.3C840,213,960,171,1080,165.3C1200,160,1320,192,1380,208L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>') bottom center no-repeat;
+            background-size: cover;
+        }
+        
+        /* 核心能力展示部分 */
+        .capabilities {
+            padding: 100px 0 80px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .capability-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .capability-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .capability-icon {
+            font-size: 60px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .capability-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .capability-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+        
+        /* 行业应用场景 */
+        .industry-apps {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf5ff 100%);
+        }
+        
+        .tabs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .tabs-header {
+            display: flex;
+            background: var(--primary);
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        
+        .tabs-header::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .tab-btn {
+            flex: 1;
+            min-width: 160px;
+            padding: 20px;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+        }
+        
+        .tab-btn.active {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .tab-btn.active:after {
+            transform: scaleX(1);
+        }
+        
+        .tab-content {
+            padding: 40px;
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .scenario-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid var(--primary);
+            transition: all 0.3s;
+        }
+        
+        .scenario-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(26, 109, 204, 0.15);
+        }
+        
+        .scenario-card h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+        }
+        
+        .scenario-card h4 i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .scenario-card ul {
+            list-style: none;
+            padding-left: 5px;
+        }
+        
+        .scenario-card li {
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .scenario-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .scenario-card li:last-child {
+            border-bottom: none;
+        }
+        
+        /* 客户案例 */
+        .client-cases {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .case-card {
+            background: var(--light);
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .case-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .case-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .case-title {
+            font-size: 22px;
+            color: var(--dark);
+        }
+        
+        .case-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .scenario-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .scenario-list li:before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: var(--secondary);
+            font-size: 20px;
+        }
+        /* 自动化演示部分 */
+        .automation-demo {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf5ff 100%);
+        }
+        
+        .demo-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+        
+        .demo-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .demo-content h2 {
+            font-size: 36px;
+            color: #0d4a9e;
+            margin-bottom: 25px;
+        }
+        
+        .demo-content p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        
+        .demo-animation {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .robot-arm {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+        }
+        
+        .arm {
+            position: absolute;
+            width: 100px;
+            height: 15px;
+            background: #1a6dcc;
+            border-radius: 10px;
+            transform-origin: left center;
+        }
+        
+        .arm-base {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            background: #0d4a9e;
+        }
+        
+        .arm-1 {
+            bottom: 15px;
+            left: 50%;
+            animation: arm1 4s infinite ease-in-out;
+        }
+        
+        .arm-2 {
+            bottom: 15px;
+            left: 50%;
+            transform-origin: left center;
+            animation: arm2 4s infinite ease-in-out;
+        }
+        
+        .data-point {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6b35;
+            border-radius: 50%;
+            opacity: 0;
+        }
+        
+        @keyframes arm1 {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(45deg); }
+            50% { transform: translateX(-50%) rotate(0deg); }
+            75% { transform: translateX(-50%) rotate(-45deg); }
+        }
+        
+        @keyframes arm2 {
+            0%, 100% { transform: translateX(-50%) rotate(0deg); }
+            25% { transform: translateX(-50%) rotate(30deg); }
+            50% { transform: translateX(-50%) rotate(0deg); }
+            75% { transform: translateX(-50%) rotate(-30deg); }
+        }
+        
+        /* 效率对比部分 */
+        .efficiency-comparison {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .charts-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .chart-box {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .chart-title {
+            text-align: center;
+            font-size: 22px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .chart-container {
+            height: 300px;
+            position: relative;
+        }
+        
+        /* 培训服务 */
+        .training-services {
+            padding: 100px 0;
+            background: linear-gradient(120deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px 30px;
+            transition: all 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+        
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .service-card li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .service-card li:before {
+            content: '✓';
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-logo {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .copyright {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #ff6b35;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* 数据收集部分 */
+        .data-collection {
+            padding: 100px 0;
+            background: linear-gradient(120deg, #0d4a9e 0%, #1a6dcc 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .collection-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .collection-container h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .collection-container p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        
+        .collection-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+
+
+        .collection-container h2 {
+                font-size: 28px;
+            }
+        
+        /* 响应式调整 */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .subtitle {
+                font-size: 18px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .tabs-header {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                min-width: 120px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 40px 20px 30px;
+            }
+            
+            h1 {
+                font-size: 32px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 80px;
+                font-size: 36px;
+            }
+            
+            .cases-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h1>影刀RPA 智能自动化解决方案</h1>
+                <p class="subtitle">释放人力潜能，提升企业效率与准确性，实现业务流程自动化革命</p>
+                <a href="#contact" class="cta-button">立即填写评估表</a>
+            </div>
+            <div class="header-animation"></div>
+        </div>
+    </header>
+    
+    <!-- 核心能力展示 -->
+    <section class="capabilities">
+        <div class="container">
+            <div class="section-title">
+                <h2>影刀RPA核心能力</h2>
+                <p>智能自动化平台，赋能企业数字化转型</p>
+            </div>
+            
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>桌面软件自动化</h3>
+                    <p>实现所有桌面应用程序的自动化，包括ERP、浏览器、CRM、微信、钉钉或您日常使用的任何其他应用程序</p>
+                </div>
+                
+                
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>网页自动化</h3>
+                    <p>支持网页JS脚本，数据抓取、Web表单填写、网页操作，API调用等，轻松实现自动化的Web任务</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-file-excel"></i>
+                    </div>
+                    <h3>Excel自动化</h3>
+                    <p>支持Excel的宏、单元格、Sheet等各类Excel自动化操作，如自动生成所需的Excel报表</p>
+                </div>
+
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-mouse"></i>
+                    </div>
+                    <h3>鼠标键盘自动化</h3>
+                    <p>控制键盘和鼠标，就像人一样操作：发送按键或将鼠标移至何处、模拟击键、鼠标移动和单击等</p>
+                </div>
+                
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>数据库自动化</h3>
+                    <p>通过使用影刀来连接任何数据库并自动运行SQL查询，提升操作效率及降低安全风险</p>
+                </div>
+                
+                
+
+                <div class="capability-card">
+                    <div class="capability-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>手机App自动化</h3>
+                    <p>驱动手机上的任何APP进行输入、点击、手势滑动、提取数据等操作；支持同时控制多台手机设备进行自动化</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- 自动化演示 -->
+    <section class="automation-demo">
+        <div class="container">
+            <div class="demo-container">
+                <div class="demo-content">
+                    <h2>自动化效率演示</h2>
+                    <p>影刀RPA能够像虚拟员工一样执行各种规则明确的业务流程，大幅提升工作效率和准确性。</p>
+                    <p>通过可视化流程设计器，无需编写代码即可创建自动化流程，支持Windows、Web、SAP、Excel等多种应用场景。</p>
+                    <p>实际案例中，某企业财务部门使用影刀RPA后，月结时间从5天缩短至6小时，准确率从92%提升至99.9%。</p>
+                </div>
+                
+                <div class="demo-animation">
+                    <div class="robot-arm">
+                        <div class="arm-base"></div>
+                        <div class="arm arm-1"></div>
+                        <div class="arm arm-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 效率对比 -->
+    <section class="efficiency-comparison">
+        <div class="container">
+            <div class="section-title">
+                <h2>效率与准确性对比</h2>
+                <p>实际数据展示自动化带来的革命性变化</p>
+            </div>
+            
+            <div class="charts-container">
+                <div class="chart-box">
+                    <div class="chart-title">任务处理时间对比（分钟）</div>
+                    <div class="chart-container">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="chart-box">
+                    <div class="chart-title">数据处理准确率对比</div>
+                    <div class="chart-container">
+                        <canvas id="accuracyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 行业应用场景 -->
+    <section class="industry-apps">
+        <div class="container">
+            <div class="section-title">
+                <h2>行业应用场景</h2>
+                <p>影刀RPA在各行业的典型应用解决方案</p>
+            </div>
+            
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-btn active" data-tab="hr">人事行政</button>
+                    <button class="tab-btn" data-tab="customer-service">客服部门</button>
+                    <button class="tab-btn" data-tab="operation">运营部门</button>
+                    <button class="tab-btn" data-tab="finance">财务部门</button>
+                    <button class="tab-btn" data-tab="supply-chain">供应链</button>
+                    
+                </div>
+                
+                <div class="tabs-content">
+
+                    <!-- 人事行政 -->
+                    <div class="tab-content active" id="hr">
+                        <h3>人事行政自动化解决方案</h3>
+                        <p>很零碎且费时的工作，使用影刀后可以大大提升工作效率。</p>
+                        
+                        <div class="scenario-grid">
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-headset"></i> 招聘管理</h4>
+                                <ul>
+                                    <li>Boss直聘信息摘取</li>
+                                    <li>自动发消息/交换微信</li>
+                                    <li>侯诜人面试邮件通知</li>
+                                    <li>人资录用通知书生成</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-clipboard-list"></i> 招聘管理</h4>
+                                <ul>
+                                    <li>招聘数捃汇总</li>
+                                    <li>重复面试报簪情况</li>
+                                    <li>抓取同类岗位描述</li>
+                                    <li>及时提醒回复信息</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-truck"></i> 社保福利</h4>
+                                <ul>
+                                    <li>新人社保公积金缴纳</li>
+                                    <li>社保卡开卡信息查询</li>
+                                    <li>个税一键零申报</li>
+                                    <li>单工伤保险批量申报</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-money-bill-wave"></i> 员工管理</h4>
+                                <ul>
+                                    <li>入职员工资料补充</li>
+                                    <li>入职/离职信息导出</li>
+                                    <li>转正流程管理</li>
+                                    <li>离职信息核对</li>
+                                </ul>
+                            </div>
+
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-money-bill-wave"></i> 薪资考勤</h4>
+                                <ul>
+                                    <li>人事考勤统计</li>
+                                    <li>绩效统计核算</li>
+                                    <li>薪资计算</li>
+                                    <li>工资条通知</li>
+                                </ul>
+                            </div>
+
+
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-money-bill-wave"></i> 行政管理</h4>
+                                <ul>
+                                    <li>员工关怀管理</li>
+                                    <li>物料采购需求汇总</li>
+                                    <li>设备库存/报修统计</li>
+                                    <li>疫情防疫政策同步</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 客服部门 -->
+                    <div class="tab-content" id="customer-service">
+                        <h3>客服部门自动化解决方案</h3>
+                        <p>影刀RPA帮助客服部门自动化处理日常重复性任务，提升响应速度和服务质量</p>
+                        
+                        <div class="scenario-grid">
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-headset"></i> 客服接待</h4>
+                                <ul>
+                                    <li>售前批量发消息</li>
+                                    <li>客服聊天记录获取</li>
+                                    <li>赤兔名品绩效下载</li>
+                                    <li>买家秀发货备注</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-clipboard-list"></i> 订单管理</h4>
+                                <ul>
+                                    <li>平台订单下载处理</li>
+                                    <li>平台订单发货处理</li>
+                                    <li>ERP审单/建补发单</li>
+                                    <li>异常单插旗备注</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-truck"></i> 物流监控</h4>
+                                <ul>
+                                    <li>发货/揽收预警监控</li>
+                                    <li>延迟发货报备</li>
+                                    <li>问题件申诉</li>
+                                    <li>异常件建工单</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-money-bill-wave"></i> 退款处理</h4>
+                                <ul>
+                                    <li>未发货仅退款处理</li>
+                                    <li>已发货仅退款处理</li>
+                                    <li>退款拦截单创建</li>
+                                    <li>批量拒绝退款申请</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 运营部门 -->
+                    <div class="tab-content" id="operation">
+                        <h3>运营部门自动化解决方案</h3>
+                        <p>影刀RPA赋能运营团队，自动化处理内容、商品、推广等核心业务</p>
+                        
+                        <div class="scenario-grid">
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-photo-video"></i> 内容管理</h4>
+                                <ul>
+                                    <li>图文素材批量下载</li>
+                                    <li>作图/抠图/加水印</li>
+                                    <li>商品违禁词检查</li>
+                                    <li>内容上传与发布</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-store"></i> 店铺管理</h4>
+                                <ul>
+                                    <li>商品自动化上架</li>
+                                    <li>商品信息获取</li>
+                                    <li>商品主图更换</li>
+                                    <li>主图活动价检查</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-chart-line"></i> 推广设置</h4>
+                                <ul>
+                                    <li>官方活动报名</li>
+                                    <li>商品活动改价调整</li>
+                                    <li>店铺促销/优惠券设置</li>
+                                    <li>推广效果数据获取</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-chart-pie"></i> 运营复盘</h4>
+                                <ul>
+                                    <li>店铺经营日报</li>
+                                    <li>推广数据日报</li>
+                                    <li>店铺粉丝数据获取</li>
+                                    <li>商品单品数据下载</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 财务部门 -->
+                    <div class="tab-content" id="finance">
+                        <h3>财务部门自动化解决方案</h3>
+                        <p>影刀RPA实现财务流程自动化，提高准确性并降低合规风险</p>
+                        
+                        <div class="scenario-grid">
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-file-invoice-dollar"></i> 费用报销</h4>
+                                <ul>
+                                    <li>报销单据预审/审核</li>
+                                    <li>账务处理</li>
+                                    <li>火车票机票OCR</li>
+                                    <li>报销费用事后分析</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-hand-holding-usd"></i> 应收管理</h4>
+                                <ul>
+                                    <li>收入对账</li>
+                                    <li>回款对账</li>
+                                    <li>费用对账</li>
+                                    <li>收款核销/清账</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-file-invoice"></i> 税务管理</h4>
+                                <ul>
+                                    <li>OA/CRM/ERP抓取开票信息</li>
+                                    <li>销售发票开具</li>
+                                    <li>进项发票验证</li>
+                                    <li>纳税申报</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-piggy-bank"></i> 资金管理</h4>
+                                <ul>
+                                    <li>流水下载（网银、支付宝、微信等）</li>
+                                    <li>银企对账</li>
+                                    <li>收付款处理</li>
+                                    <li>上传资金系统</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- 供应链 -->
+                    <div class="tab-content" id="supply-chain">
+                        <h3>供应链自动化解决方案</h3>
+                        <p>这里列举了一些部分运营工作可以用影刀实现的，比如要下载各种数据，做日报，以及一些活动报名等等。</p>
+                        
+                        <div class="scenario-grid">
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-file-invoice-dollar"></i> 采购管理</h4>
+                                <ul>
+                                    <li>最优渠道和价格比较</li>
+                                    <li>采购模块到货通知</li>
+                                    <li>采购入库分仓</li>
+                                    <li>采购快递自动验收</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-hand-holding-usd"></i> 库存支持</h4>
+                                <ul>
+                                    <li>库存巡检</li>
+                                    <li>商品周转时长</li>
+                                    <li>货期跟进</li>
+                                    <li>库存/sku统计</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-file-invoice"></i> 订单管理</h4>
+                                <ul>
+                                    <li>订单生成</li>
+                                    <li>订单纠错</li>
+                                    <li>订单预测</li>
+                                    <li>竞店数据获取</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-piggy-bank"></i> 计划生产</h4>
+                                <ul>
+                                    <li>计划报表管理</li>
+                                    <li>采购计划更新</li>
+                                    <li>生产报表</li>
+                                    <li>供应协同</li>
+                                </ul>
+                            </div>
+
+                            <div class="scenario-card">
+                                <h4><i class="fas fa-piggy-bank"></i> 仓储物流</h4>
+                                <ul>
+                                    <li>仓储管理报表</li>
+                                    <li>物流费用结算</li>
+                                    <li>地址归一</li>
+                                    <li>物流自动查询</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据收集 -->
+    <section id="data-collection" class="data-collection">
+        <div class="container">
+            <div class="collection-container">
+                <h2>评估您的自动化潜力</h2>
+                <p>只需简单几步，即可了解您的业务流程是否适合自动化</p>
+                
+                <div class="collection-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <p>填写自动化评估表</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <p>提交业务流程信息</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <p>获取自动化潜力报告</p>
+                    </div>
+                    
+                    <!-- <div class="step-card">
+                        <div class="step-number">4</div>
+                        <p>预约免费咨询</p>
+                    </div> -->
+                </div>
+                
+                <a href="https://kdocs.cn/l/cc5trwSsSrqv" class="cta-button">立即填写评估表</a>
+                </div>
+        </div>
+    </section>
+    
+    <!-- 页脚 -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <p>影刀RPA - 让工作更智能，让流程更精简</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ISYOU@trade.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>888-888-8888</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>广东省深圳市龙岗区深特变科技园</span>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    © 2025 深圳市宇航珠宝有限公司 
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 选项卡功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有激活状态
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加当前激活状态
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 案例卡片动画
+            const caseCards = document.querySelectorAll('.case-card');
+            caseCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 + index * 200);
+            });
+        });
+
+        // 效率对比图表
+        const timeCtx = document.getElementById('timeChart').getContext('2d');
+        const timeChart = new Chart(timeCtx, {
+            type: 'bar',
+            data: {
+                labels: ['数据录入', '报表生成', '发票处理', '订单审核', '邮件处理'],
+                datasets: [{
+                    label: '人工处理时间',
+                    data: [120, 180, 90, 75, 45],
+                    backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: '影刀RPA处理时间',
+                    data: [6, 9, 4.5, 3.8, 2.3],
+                    backgroundColor: 'rgba(255, 107, 53, 0.7)',
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '处理时间（分钟）'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 准确率对比图表
+        const accuracyCtx = document.getElementById('accuracyChart').getContext('2d');
+        const accuracyChart = new Chart(accuracyCtx, {
+            type: 'radar',
+            data: {
+                labels: ['数据录入', '报表生成', '发票处理', '订单审核', '邮件处理'],
+                datasets: [{
+                    label: '人工准确率',
+                    data: [92, 88, 95, 90, 97],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                }, {
+                    label: '影刀RPA准确率',
+                    data: [99.8, 99.9, 99.7, 99.9, 99.8],
+                    backgroundColor: 'rgba(255, 107, 53, 0.2)',
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(255, 107, 53, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        min: 80,
+                        max: 100,
+                        ticks: {
+                            stepSize: 5
+                        }
+                    }
+                }
+            }
+        });
+        
+        // 创建数据点动画
+        function createDataPoints() {
+            const animationArea = document.querySelector('.demo-animation');
+            for (let i = 0; i < 20; i++) {
+                const point = document.createElement('div');
+                point.className = 'data-point';
+                point.style.left = `${Math.random() * 90 + 5}%`;
+                point.style.top = `${Math.random() * 90 + 5}%`;
+                point.style.width = `${Math.random() * 20 + 10}px`;
+                point.style.height = point.style.width;
+                point.style.animationDelay = `${Math.random() * 5}s`;
+                animationArea.appendChild(point);
+                
+                // 添加动画
+                animatePoint(point);
+            }
+        }
+        
+        function animatePoint(point) {
+            let opacity = 0;
+            let scale = 0.5;
+            let direction = 1;
+            
+            function animate() {
+                opacity += 0.02 * direction;
+                scale += 0.01 * direction;
+                
+                if (opacity > 1) {
+                    opacity = 1;
+                    direction = -1;
+                } else if (opacity < 0) {
+                    opacity = 0;
+                    scale = 0.5;
+                    direction = 1;
+                }
+                
+                point.style.opacity = opacity;
+                point.style.transform = `scale(${scale})`;
+                
+                requestAnimationFrame(animate);
+            }
+            
+            animate();
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            createDataPoints();
+        });
+    </script>
+</body>
+</html>
