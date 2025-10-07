@@ -669,11 +669,11 @@
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2025年8月1日 - 2025年8月31日</span>
+                        <span>报告周期：2025年9月1日 - 2025年9月30日</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2025年9月8日</span>
+                        <span>报告日期：2025年10月8日</span>
                     </div>
                 </div>
             </div>
@@ -686,53 +686,76 @@
             </div>
             
             <div class="metrics">
+                
                 <div class="metric-card">
-                    <div class="metric-title">自动化流程及指令开发数量</div>
-                    <div class="metric-value">37个</div>
-                    <div class="metric-desc">任务时流程当天运行时间占比22/24h</div>
-                    <div class="metric-desc">已发布提供使用的流程运行时间达到912h</div>
+                    <div class="metric-title">聚水潭-标签表格生成与上传</div>
+                    <div class="metric-value">已运行32天</div>
+                    <div class="metric-desc">三个定时任务</div>
+                    <div class="metric-desc">每天 1:00/1:30/2:00</div>
                 </div>
                 
                 <div class="metric-card">
-                    <div class="metric-title">上架天猫，拼多多的自动化流程</div>
-                    <div class="metric-value">50/天</div>
-                    <div class="metric-desc">天猫：中金，中珠 各上架920款SPU</div>
-                    <div class="metric-desc">拼多多：中金，中珠 各上架920款SPU</div>
+                    <div class="metric-title">聚水潭-筛选库存二维码有效性</div>
+                    <div class="metric-value">运行25天</div>
+                    <div class="metric-desc">一个定时任务</div>
+                    <div class="metric-desc">每周三，周六 4:00</div>
                 </div>
-                
+
                 <div class="metric-card">
-                    <div class="metric-title">生成已上架SPU的货盘表</div>
-                    <div class="metric-value">920条</div>
-                    <div class="metric-desc">汇总中台部门粤豪款的上架数据</div>
-                    <div class="metric-desc">钉钉在线表格在每天执行完上架后进行统计</div>
+                    <div class="metric-title">审单-订单克重筛查-正式</div>
+                    <div class="metric-value">运行13天</div>
+                    <div class="metric-desc">两个定时任务</div>
+                    <div class="metric-desc">每天 3:00/18:00</div>
                 </div>
+
+                <div class="metric-card">
+                    <div class="metric-title">数据-天检表格生成</div>
+                    <div class="metric-value">运行18天</div>
+                    <div class="metric-desc">无定时任务</div>
+                    <div class="metric-desc">根据任务自定义执行</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-title">数据-聚水潭字印上传</div>
+                    <div class="metric-value">运行20天</div>
+                    <div class="metric-desc">一个定时任务</div>
+                    <div class="metric-desc">每天 3:30</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-title">胜算-自动配置金价</div>
+                    <div class="metric-value">运行7天</div>
+                    <div class="metric-desc">两个定时任务</div>
+                    <div class="metric-desc">每天 12:10/13:00</div>
+                </div>
+
             </div>
         </div>
         
         <div class="section" id="projects-section">
             <div class="section-title">
                 <i class="fas fa-tasks"></i>
-                <h2>主要工作任务进度</h2>
+                <h2>流程步骤及规则介绍</h2>
             </div>
             
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">自动化上架流程</div>
+                    <div class="project-title">聚水潭-标签表格生成与上传</div>
                     <div class="project-status status-completed">已完成</div>
                 </div>
                 
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：</span>
-                        <span>版本96 发布时间：2025.8.28</span>
+                        <span>版本52 发布时间：2025.9.29</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + Python + Excel</span>
+                        <span>影刀RPA + 数据库 + HTTP</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>每天执行</span>
+                        <span>每天执行三次</span>
                     </div>
                 </div>
                 
@@ -745,70 +768,119 @@
                         <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
+
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 效益及流程简介：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>可自动化上架款式商品到各个平台，中台实现上架自动化的平台有，天猫，拼多多，得物，唯品会</span>
+                        <span>每天的01时00分执行中金销售出仓定时任务 并且推送到钉钉标签组群聊由@詹玉琴@邱欣静处理</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>只计算上架用时纯人工一人一天一个平台最多能上50款，多SKU情况则需要两天完成，自动化流程2h则可解决上架需求</span>
+                        <span>每天的01时30分执行中金调拨入定时任务  并且推送到钉钉标签组群聊由@詹玉琴@邱欣静处理</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>首先使用程序从聚水潭上拉取所需上架款式的数据表格，表格来自流程：自动生成上架表格</span>
+                        <span>每天的02时00分执行中珠标签定时任务  并且推送到钉钉标签组群聊由@詹玉琴@邱欣静处理</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 中金销售出仓定时任务：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>可指定处理开始和结束的操作日期，默认处理 昨日整天数据</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>准备对应上架款式的图包，图包由美工使用流程生成，流程为：自动生成上架图包</span>
+                        <span>第一步 下载指定日期内的 唯一码进出流水 的数据表格并筛选出 宇航-中珠仓，宇航-中央仓，宇航-展厅仓的数据</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>天猫的图包需要上传图片空间，至此前置条件完成，使用上架流程：自动化商品上架流程</span>
+                        <span>第二步 下载指定日期内的 唯一码查询 的数据表格并筛选出 宇航-中珠仓，宇航-中央仓，宇航-展厅仓的数据</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>上架所需数据皆为计算机处理，确保了数据的准确性，数据准确率为99%</span>
+                        <span>第三步 根据商品编码下载对应的普通商品资料数据，用于获取商品分类</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>上架流程使用WPS在线表格实时通知上架流程的状态信息，执行状态，上架SPU编号等</span>
+                        <span>第四步 商品款式分类以及数据库查重 并判断是否异常数据 最后根据分类插入表格后同步写入数据库</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>程序使用分级容错机制，代码级容错：单指令出错触发回滚到执行前状态重新执行</span>
+                        <span>克重判断规则：总质量和重量为空 报异常，总质量为空重量有数值则赋值给总质量，总质量和重量取最大值</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 中金调拨入定时任务：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>可指定处理开始和结束的操作日期，默认处理 昨日整天数据</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>程序使用分级容错机制，模块级容错：天猫上架模块(示例)，执行一轮后启动筛查功能，若存在未成功上架的数据，则重新执行当前款式</span>
+                        <span>第一步 下载指定日期内中金仓的 唯一码进出流水 的数据表格</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>程序使用分级容错机制，既保证了上架的效率又保证了上架的完整性，解决人工多次执行问题，使程序做到单次执行即见成果的状态</span>
+                        <span>第二步 发送协议请求获取分仓-宇航-中珠仓,分仓-宇航-中央仓,分仓-宇航-展厅仓 跨仓调拨入到中金仓的数据 只处理在此数据中的唯一码</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 根据商品编码下载对应的普通商品资料数据，用于获取商品分类</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第四步 商品款式分类以及数据库查重 并判断是否异常数据 最后根据分类插入表格后同步写入数据库</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>克重判断规则：总质量和重量为空 报异常，总质量为空重量有数值则赋值给总质量，总质量和重量取最大值</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 中珠标签定时任务：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>可指定处理开始和结束的操作日期，默认处理 昨日整天数据</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 下载指定日期内且指定分类 的唯一码进出流水的数据表格</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 商品款式分类后判断是否异常数据 最后根据分类插入表格等待上传中珠系统</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 根据对应表格上传中珠系统中不同分类中 并记录上传信息</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>克重判断规则：总质量和重量为空 报异常，总质量为空重量有数值则赋值给总质量，除银和玉髓外总质量和重量取最大值</span>
                     </div>
                 </div>
             </div>
             
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">生成上架数据的货盘表</div>
+                    <div class="project-title">聚水潭-筛选库存二维码有效性</div>
                     <div class="project-status status-completed">已完成</div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：</span>
-                        <span>版本2 发布时间：2025.8.26</span>
+                        <span>版本28 发布时间：2025.9.29</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + Excel</span>
+                        <span>影刀RPA + 多线程 + HTTP</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>根据上架任务执行</span>
+                        <span>每周执行两次</span>
                     </div>
                 </div>
                 
@@ -821,70 +893,278 @@
                         <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 流程简介：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>实时同步数据到钉钉在线表格，确保只添加数据不修改数据，避免店铺ID的数据不准确，保证店铺ID的唯一性</span>
+                        <span>每周三，周六 4时00分 执行流程 聚水潭-筛选库存二唯码有效性</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 聚水潭-筛选库存二唯码有效性：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 导出所有唯一码库存数据</span>
                     </div>
                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i> 
-                        <span>货盘表数据来源于自动化上架流程执行后产出的表格，上架流程会在上架成果后爬取该SPU的店铺ID以及多SKUid</span>
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 创建多线程并发创建检查任务</span>
                     </div>
                     <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i> 
-                        <span>从无到有的货盘表使得部门负责人进行盘点时，对数据的直观可视化，简化盘点的操作流程难度</span>
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 执行检查任务发送HTTP请求并且解析页面并判断数据是否正确</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第四步 遍历所有线程任务并写入表格，最后将表格推送至钉钉群聊 质检部信息通知</span>
                     </div>
                 </div>
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">跨部门（仓库）搭建自动化流程</div>
-                    <div class="project-status status-ongoing">待进行</div>
+                    <div class="project-title">审单-订单克重筛查-正式</div>
+                    <div class="project-status status-completed">已完成</div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
-                        <span class="detail-label">程序流程已审查，等待开发</span>
+                        <span class="detail-label">程序版本：</span>
+                        <span>版本3 发布时间：2025.9.30</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + 根据任务评估</span>
+                        <span>影刀RPA + PyThon + HTTP</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>根据任务评估</span>
+                        <span>每天执行两次</span>
                     </div>
                 </div>
                 
                 <div class="progress-container">
                     <div class="progress-info">
                         <span>项目进度</span>
-                        <span>10%</span>
+                        <span>100%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" data-width="10"></div>
+                        <div class="progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 流程效果预估：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>每天凌晨0点定时执行，拉取中金中珠的数据上传到对应的中金和中珠的平台上</span>
+                        <span>每天 3时00分 执行流程 审单-订单克重筛查-正式 审单第二批数据(18：01-23：59)</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>自动筛查同步异常数据，对异常数据进行标注</span>
+                        <span>每天 18时00分 执行流程 审单-订单克重筛查-正式 审单第一批数据(0：00-18：00)</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 审单-订单克重筛查-正式：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 下载指定时间段的 符合条件的订单数据</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>避免人工误填数据，节省此步人工耗时，提高仓库人员利用率</span>
+                        <span>第二步 筛选并剔除非金订单 即银饰等</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 根据款式编码获取对应的普通商品资料信息，用来获取克重</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第四步 使用请求获取对应线上订单克重区间 允许克重上下浮动 订单克重可以高于商品资料克重0.2g 同理可以低于0.03g</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第五步 对应线上规格未获取到克重区间则对比订单的规格和商品资料克重</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第六步 将符合克重筛选条件的订单生成表格推送 钉钉用户 @廖金兰</span>
                     </div>
                 </div>
             </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">数据-天检表格生成</div>
+                    <div class="project-status status-completed">已完成</div>
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：</span>
+                        <span>版本1 发布时间：2025.9.20</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>影刀RPA + EXECT + HTTP</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>根据任务运行</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 数据-天检表格生成（正常不加急）：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 操作员将需要处理的订单数据表格下载并放入指定文件夹下</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 根据商品编码从采购进仓获取匹配的唯一码数据生成并插入待上传表格</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 数据-天检表格生成（加急未打印）：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 操作员将需要处理的订单数据 蓝标 表格下载并放入指定文件夹下</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 将上传的订单原数据表格下载并放入指定文件夹下</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 根据商品编码从采购进仓获取匹配的唯一码数据拼接上传原数据表格生成并插入待上传表格</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">数据-聚水潭字印上传</div>
+                    <div class="project-status status-completed">已完成</div>
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：</span>
+                        <span>版本12 发布时间：2025.9.30</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>影刀RPA + PyThon + EXECT</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>每天一次</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>每天 3时30分 执行流程 数据-聚水潭字印上传</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 数据-聚水潭字印上传：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 下载小豪品牌的小豪黄金分类的前天的所有数据</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 匹配出对应字印写入上传表格</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 上传表格至聚水潭更新字印信息</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-header">
+                    <div class="project-title">胜算-自动配置金价</div>
+                    <div class="project-status status-completed">已完成</div>
+                </div>
+
+                <div class="project-details">
+                    <div class="detail-item">
+                        <span class="detail-label">程序版本：</span>
+                        <span>版本2 发布时间：2025.9.30</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">技术栈：</span>
+                        <span>影刀RPA + 钉钉在线表格</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">执行频率：</span>
+                        <span>每天两次</span>
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-info">
+                        <span>项目进度</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" data-width="100"></div>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>每天 12时10分 执行流程 胜算-自动配置金价</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>每天 13时00分 执行核验流程 胜算-自动配置金价</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 胜算-自动配置金价：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第一步 读取钉钉在线表格日期和昨收金价 并核验时间是否为今日更新日期</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第二步 修改胜算昨收金价为表格更新数据 并检验是否需要更新数据</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>第三步 创建任务修改金价</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>中途每一步流程异常都会通知到开发者进行及时校验并更正</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
         
         <div class="section" id="issues-section">
@@ -904,15 +1184,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>天猫图片空间限流</td>
-                        <td class="priority-high">需要人员花时间上传图片空间</td>
-                        <td>从聚水潭上架图片引用到各个平台，再从平台上修改上架数据</td>
-                        <td class="priority-high">高</td>
-                    </tr>
-                    <tr>
-                        <td>账号以及电脑问题</td>
-                        <td class="priority-medium">排队执行任务</td>
-                        <td>使用公司空闲主机运行程序</td>
+                        <td>聚水潭下载表格信息偶尔需要接受验证码验证</td>
+                        <td class="priority-medium">影响流程运行</td>
+                        <td>账号归属号码进行验证重新执行</td>
                         <td class="priority-medium">中</td>
                     </tr>
                 </tbody>
@@ -929,25 +1203,26 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <div class="step-title">继续跟进中台部门自动化程序</div>
+                        <div class="step-title">继续跟进中台部门流程的更新和维护</div>
                         <div>解决日常上架任务中所产生的突发问题</div>
-                        <div>及时解答中台部门人员对所有自动化程序操作所存在的疑点</div>
+                        <div>开发新排版图包的自动化流程</div>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <div class="step-title">跨部门审查可实现的自动化流程</div>
-                        <div>实现从多人从事相同工作到一人从事多人工作的转变</div>
+                        <div class="step-title">继续跟进供应链部门流程的更新和维护</div>
+                        <div>实现供应链至聚水潭的数据准确性</div>
+                        <div>替代人工重复耗时易错的流程步骤</div>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <div class="step-title">针对日常工作中产生的问题定点解决</div>
-                        <div>解决部门人员工作中所产生的大量且繁琐的任务，尽可能缩短单个任务的执行时间</div>
+                        <div class="step-title">搭建定时推送体系</div>
+                        <div>执行结果推送至对应群聊对应负责人尽快处理问题数据</div>
                     </div>
                 </div>
             </div>
@@ -962,11 +1237,10 @@
             <div class="summary">
                 <div class="summary-title">本月工作概述</div>
                 <div class="summary-content">
-                    <p>本月完善了中台上架流程，补全了关于上架流程所有可自动化步骤的程序的开发，把套图，做表，上架实现95%自动化实现</p>
-                    <p>针对粤豪展开实现，全流程自动化，成功上线并投入使用：自动生成上架表格，自动生成上架图包，自动上架商品</p>
-                    <p>为保障上架的连续和准确性，开发上线投入使用：审图工具2.0，嵌入式半自动化处理复杂主图，上架工具箱 等辅助流程</p>
-                    <p>全面实时跟进粤豪方的上架任务（每天每个个平台50款SPU），并对各个店铺上架程序进行维护(平台页面更新)</p>
-                    <p>为同事解决大数据量任务，根据反馈的建议持续优化程序，让程序运行方面效率提升，使任务整体完成度的加快进行</p>
+                    <p>本月针对供应链进行跨部门开发，主旨为了使特定流程全自动化运行，简化替代人工处理精细数据操作，避免数据误操作</p>
+                    <p>主要解决了标签和官网以及聚水潭数据不匹配，现在每天由程序拉取中金中珠的数据表格，中珠由程序自动上传，中金则推送上传表格至钉钉标签群聊，由负责人审核后手动上传</p>
+                    <p>审单方面主要审查聚水潭生成的订单数据克重是否匹配，避免人工误操作发错克重，直接导致公司损失</p>
+                    <p>聚水潭数据维护主要包括，唯一码库存二次编码是否正确和二次编码对应克重是否匹配，维护小豪字印，维护胜算金价等</p>
                 </div>
             </div>
             
