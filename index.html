@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISYOU影刀自动化工程师工作月报</title>
+    <title>ISYOU影刀自动化工程师2026年工作计划</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -15,7 +14,7 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f0f5ff 0%, #e4edf5 100%);
+            background: linear-gradient(135deg, #f5f9ff 0%, #e8f1fc 100%);
             color: #333;
             padding: 20px;
             line-height: 1.6;
@@ -42,6 +41,7 @@
             }
         }
         
+        /* 头部动效优化 */
         header {
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
             color: white;
@@ -49,48 +49,131 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 300px;
         }
         
         .header-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
         
+        /* 粒子背景动画 */
+        .particles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+        
+        /* 动态网格背景 */
         .header-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="transparent"/><path d="M0,0 L100,100 M-20,20 L20,40 M80,0 L120,20" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
-            opacity: 0.2;
+            background: 
+                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 30px 30px,
+                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 30px 30px;
             z-index: 1;
+            opacity: 0.3;
+            animation: gridMove 20s linear infinite;
         }
         
+        @keyframes gridMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(30px, 30px);
+            }
+        }
+        
+        /* 光晕效果 */
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+        
+        /* 标题动画效果 */
         h1 {
             font-size: 2.8rem;
             margin-bottom: 15px;
             font-weight: 700;
             letter-spacing: 1px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.8s ease-in-out;
+            position: relative;
+            z-index: 3;
+            animation: titleReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
         
+        @keyframes titleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* 副标题动画 */
         .subtitle {
             font-size: 1.3rem;
             opacity: 0.9;
             margin-bottom: 30px;
             font-weight: 300;
-            animation: fadeIn 0.8s ease-in-out 0.2s forwards;
+            position: relative;
+            z-index: 3;
+            animation: subtitleReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.3s forwards;
             opacity: 0;
+            transform: translateY(20px);
         }
         
-        @keyframes fadeIn {
-            to { opacity: 1; }
+        @keyframes subtitleReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
+        /* 信息卡片动画 */
         .report-info {
             display: flex;
             justify-content: center;
@@ -101,8 +184,22 @@
             padding: 20px;
             margin-top: 25px;
             backdrop-filter: blur(5px);
-            animation: fadeIn 0.8s ease-in-out 0.4s forwards;
+            position: relative;
+            z-index: 3;
+            animation: infoReveal 1s cubic-bezier(0.77, 0, 0.175, 1) 0.6s forwards;
             opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes infoReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .info-item {
@@ -113,12 +210,143 @@
             padding: 8px 15px;
             background: rgba(255, 255, 255, 0.15);
             border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         .info-item i {
             font-size: 1.3rem;
+            transition: transform 0.3s ease;
         }
         
+        .info-item:hover i {
+            transform: scale(1.2);
+        }
+        
+        /* 浮动装饰元素 */
+        .floating-element {
+            position: absolute;
+            z-index: 2;
+            opacity: 0.1;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 40px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 50%;
+            animation: floatElement 15s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            width: 60px;
+            height: 60px;
+            border: 2px dashed white;
+            border-radius: 10px;
+            animation: floatElement 20s ease-in-out infinite reverse;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            width: 30px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: floatElement 18s ease-in-out infinite;
+        }
+        
+        @keyframes floatElement {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+            50% {
+                transform: translate(0, -40px) rotate(180deg);
+            }
+            75% {
+                transform: translate(-20px, -20px) rotate(270deg);
+            }
+        }
+        
+        /* 闪烁的光点 */
+        .sparkle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            z-index: 2;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* 新增：动态进度条 */
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 3;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #4CAF50, #8BC34A);
+            width: 0%;
+            animation: progressFill 2s ease-out 1s forwards;
+        }
+        
+        @keyframes progressFill {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+        
+        /* 新增：标题装饰线 */
+        .title-underline {
+            height: 3px;
+            width: 0;
+            background: linear-gradient(to right, transparent, #ffffff, transparent);
+            margin: 10px auto 0;
+            animation: underlineExpand 1.2s ease-out 0.8s forwards;
+        }
+        
+        @keyframes underlineExpand {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 300px;
+            }
+        }
+        
+        /* 页面其他部分样式保持不变 */
         .section {
             padding: 40px 50px;
             border-bottom: 1px solid #f0f4f9;
@@ -167,17 +395,16 @@
             box-shadow: 0 4px 10px rgba(26, 109, 204, 0.15);
         }
         
-        .metrics {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
+        .part-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
         
-        .metric-card {
+        .part-card {
             background: #f8fafd;
             border-radius: 12px;
-            padding: 25px;
+            padding: 30px;
             border-left: 5px solid #1a6dcc;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
@@ -185,12 +412,12 @@
             overflow: hidden;
         }
         
-        .metric-card:hover {
+        .part-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 20px rgba(26, 109, 204, 0.15);
         }
         
-        .metric-card::before {
+        .part-card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -201,274 +428,178 @@
             z-index: 0;
         }
         
-        .metric-title {
-            font-size: 1.05rem;
-            color: #555;
-            margin-bottom: 12px;
-            font-weight: 600;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .metric-value {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #1a6dcc;
-            margin-bottom: 5px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .metric-desc {
-            font-size: 0.95rem;
-            color: #666;
-            margin-top: 5px;
-            position: relative;
-            z-index: 1;
-            line-height: 1.5;
-        }
-        
-        .project {
-            background: #f9fbfe;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #e1e8f0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 109, 204, 0.1);
-        }
-        
-        .project-header {
+        .part-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
             gap: 15px;
+            margin-bottom: 25px;
             position: relative;
             z-index: 1;
         }
         
-        .project-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: #1a3e78;
-        }
-        
-        .project-status {
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .status-completed {
-            background: linear-gradient(to right, #0a8f5e, #06c281);
+        .part-number {
+            background: linear-gradient(to bottom right, #1a6dcc, #0d4a9e);
             color: white;
-        }
-        
-        .status-ongoing {
-            background: linear-gradient(to right, #d48806, #ffb300);
-            color: white;
-        }
-        
-        .project-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .detail-item {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
-            gap: 12px;
             align-items: center;
-        }
-        
-        .detail-label {
-            font-weight: 600;
-            color: #555;
-            min-width: 100px;
-            font-size: 1.05rem;
-        }
-        
-        .progress-container {
-            margin: 25px 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .progress-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            color: #666;
-        }
-        
-        .progress-bar {
-            height: 12px;
-            background: #e0e7f3;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
-            border-radius: 6px;
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-        }
-        
-        .benefits {
-            background: linear-gradient(to right, rgba(26, 109, 204, 0.05), rgba(13, 74, 158, 0.03));
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px dashed #1a6dcc;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .benefits-title {
+            justify-content: center;
             font-weight: 700;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 8px rgba(26, 109, 204, 0.3);
+            flex-shrink: 0;
+        }
+        
+        .part-title {
+            font-size: 1.5rem;
+            font-weight: 700;
             color: #1a3e78;
-            font-size: 1.15rem;
+        }
+        
+        .content-section {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-title {
+            font-size: 1.2rem;
+            color: #1a6dcc;
+            margin-bottom: 15px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .benefit-item {
+        .content-title i {
+            background: #e6f0ff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .list-item {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            margin-bottom: 12px;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7);
             transition: all 0.3s ease;
         }
         
-        .benefit-item:hover {
-            background: rgba(255, 255, 255, 0.5);
+        .list-item:hover {
+            background: white;
             transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
         
-        .benefit-item i {
+        .list-item i {
             color: #1a6dcc;
-            margin-top: 5px;
-            font-size: 1.1rem;
+            margin-top: 3px;
+            font-size: 1rem;
             flex-shrink: 0;
         }
         
-        .issues-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 25px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            overflow: hidden;
+        .timeline-container {
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
         }
         
-        .issues-table th {
-            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
-            text-align: left;
-            padding: 15px 20px;
-            color: white;
+        .timeline-title {
+            font-size: 1.2rem;
+            color: #1a3e78;
+            margin-bottom: 20px;
             font-weight: 600;
         }
         
-        .issues-table td {
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-            transition: all 0.3s ease;
-        }
-        
-        .issues-table tr {
-            transition: all 0.3s ease;
-        }
-        
-        .issues-table tr:hover {
-            background-color: #f0f7ff;
-        }
-        
-        .issues-table tr:hover td {
-            transform: translateX(5px);
-        }
-        
-        .issues-table tr:nth-child(even) {
-            background: #f9fbfe;
-        }
-        
-        .priority-high {
-            color: #ff4d4f;
-            font-weight: 700;
-        }
-        
-        .priority-medium {
-            color: #fa8c16;
-            font-weight: 700;
-        }
-        
-        .next-steps {
+        .timeline {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
         
-        .step {
+        .timeline-item {
             display: flex;
             gap: 20px;
             padding: 20px;
-            border-radius: 12px;
-            background: #f8fafd;
-            align-items: flex-start;
+            border-radius: 10px;
+            background: white;
+            border: 1px solid #e1e8f0;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
             transition: all 0.3s ease;
-            border-left: 4px solid #1a6dcc;
         }
         
-        .step:hover {
-            transform: translateX(10px);
-            background: linear-gradient(to right, #f8fafd, #edf4ff);
+        .timeline-item:hover {
+            transform: translateX(5px);
+            border-color: #1a6dcc;
         }
         
-        .step-number {
-            background: linear-gradient(to bottom right, #1a6dcc, #0d4a9e);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .timeline-date {
+            background: #e6f0ff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #1a6dcc;
             flex-shrink: 0;
-            font-weight: 700;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 8px rgba(26, 109, 204, 0.3);
+            height: fit-content;
         }
         
-        .step-content {
+        .timeline-content {
             flex: 1;
         }
         
-        .step-title {
-            font-weight: 700;
-            margin-bottom: 10px;
+        .timeline-content h4 {
             color: #1a3e78;
-            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .metric-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #e1e8f0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(26, 109, 204, 0.1);
+        }
+        
+        .metric-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a6dcc;
+            margin-bottom: 5px;
+        }
+        
+        .metric-label {
+            font-size: 0.95rem;
+            color: #666;
         }
         
         .signature {
@@ -506,90 +637,6 @@
             font-size: 1.2rem;
         }
         
-        .summary {
-            background: linear-gradient(to right, #f0f7ff, #e6f0ff);
-            border-radius: 12px;
-            padding: 35px;
-            margin-top: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .summary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 100%;
-            background: linear-gradient(to bottom, #1a6dcc, #0d4a9e);
-        }
-        
-        .summary-title {
-            font-size: 1.5rem;
-            color: #1a3e78;
-            margin-bottom: 25px;
-            text-align: center;
-            font-weight: 700;
-            position: relative;
-        }
-        
-        .summary-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(to right, #1a6dcc, #0d4a9e);
-            border-radius: 3px;
-        }
-        
-        .summary-content {
-            line-height: 1.8;
-            font-size: 1.15rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .summary-content p {
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 25px;
-        }
-        
-        .summary-content p::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: #1a6dcc;
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .chart-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .chart-card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .chart-title {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #1a3e78;
-            font-weight: 600;
-        }
-        
         footer {
             text-align: center;
             padding: 30px;
@@ -599,6 +646,177 @@
             font-weight: 500;
         }
         
+        /* 新增的进度追踪样式 */
+        .progress-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 15px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(26, 109, 204, 0.2);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(26, 109, 204, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(26, 109, 204, 0);
+            }
+        }
+        
+        .status-planning { background: #e3f2fd; color: #1565c0; }
+        .status-in-progress { background: #fff3e0; color: #ef6c00; }
+        .status-completed { background: #e8f5e9; color: #2e7d32; }
+        
+        /* 路线图样式 */
+        .roadmap-container {
+            margin-top: 30px;
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e1e8f0;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            animation: slideIn 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .roadmap-title {
+            font-size: 1.3rem;
+            color: #1a3e78;
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .roadmap-quarter {
+            padding-bottom: 25px;
+            border-left: 3px solid #1a6dcc;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .roadmap-quarter:last-child {
+            padding-bottom: 0;
+        }
+        
+        .roadmap-quarter::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: #1a6dcc;
+            animation: pulseDot 2s infinite;
+        }
+        
+        @keyframes pulseDot {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+        }
+        
+        .quarter-title {
+            font-size: 1.2rem;
+            color: #0d4a9e;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .quarter-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .quarter-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            background: #f8fafd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .quarter-item:hover {
+            transform: translateX(5px);
+            background: #e6f0ff;
+        }
+        
+        .quarter-item i {
+            color: #1a6dcc;
+            margin-top: 3px;
+        }
+        
+        /* 成果展示样式 */
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .demo-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #e1e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        
+        .demo-item:nth-child(1) { animation-delay: 0.1s; }
+        .demo-item:nth-child(2) { animation-delay: 0.2s; }
+        .demo-item:nth-child(3) { animation-delay: 0.3s; }
+        
+        .demo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(26, 109, 204, 0.1);
+        }
+        
+        .demo-title {
+            font-size: 1.1rem;
+            color: #1a6dcc;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
         @media (max-width: 992px) {
             .container {
                 margin: 10px auto;
@@ -606,6 +824,7 @@
             
             header {
                 padding: 30px 25px;
+                min-height: 250px;
             }
             
             h1 {
@@ -614,6 +833,18 @@
             
             .section {
                 padding: 30px;
+            }
+            
+            .part-card {
+                padding: 25px;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .title-underline {
+                width: 200px;
             }
         }
         
@@ -631,325 +862,441 @@
                 justify-content: center;
             }
             
-            .metrics {
-                grid-template-columns: 1fr;
-            }
-            
             .section-title {
                 font-size: 1.4rem;
             }
             
-            .project-details {
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .metrics-grid {
                 grid-template-columns: 1fr;
             }
-        }
-        
-        .floating {
-            animation: floating 3s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            
+            .title-underline {
+                width: 150px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
+            <!-- 动态背景元素 -->
+            <div class="particles-container" id="particles-container"></div>
             <div class="header-bg"></div>
+            <div class="glow-effect"></div>
+            
+            <!-- 浮动装饰元素 -->
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            
+            <!-- 头部内容 -->
             <div class="header-content">
-                <h1>ISYOU影刀自动化工程师工作成果月报</h1>
-                <div class="subtitle">自动化流程优化与效率提升工作成果汇总</div>
+                <h1>影刀自动化工程师2026年工作计划</h1>
+                <div class="title-underline"></div>
+                <div class="subtitle">基于2025年工作成果的年度发展规划、目标与执行路线图</div>
                 
                 <div class="report-info">
                     <div class="info-item">
                         <i class="far fa-user"></i>
-                        <span>报告人：谢佳豪 | 所属主管：陈璐娅</span>
+                        <span>制定人：谢佳豪 | 所属主管：陈璐娅</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2025年11月1日 - 2025年11月30日</span>
+                        <span>计划周期：2026年1月 - 2026年12月</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2025年12月8日</span>
+                        <span>制定日期：2025年12月</span>
                     </div>
                 </div>
+            </div>
+            
+            <!-- 进度条 -->
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
             </div>
         </header>
         
-        <div class="section" id="kpi-section">
+        <div class="section" id="part1-section">
             <div class="section-title">
                 <i class="fas fa-chart-line"></i>
-                <h2>关键绩效指标</h2>
+                <h2>第一部分：2025年开发任务总结与2026年运维规划</h2>
+                <span class="progress-indicator status-completed">已完成总结</span>
             </div>
             
-            <div class="metrics">
-                
-                <div class="metric-card">
-                    <div class="metric-title">下架-价格预警商品下架</div>
-                    <div class="metric-value">运行38天</div>
-                    <div class="metric-desc">全天候运行监控下架</div>
-                    <div class="metric-desc">通过钉钉发送命令不停机配置流程参数</div>
+            <div class="part-container">
+                <div class="part-card">
+                    <div class="part-header">
+                        <div class="part-number">1</div>
+                        <div class="part-title">2025年开发成果总结</div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-check-circle"></i>
+                            <span>核心开发成果</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-cog"></i>
+                                <span><strong>流程自动化开发</strong>：2025年6月至今累计开发自动化流程76个，涵盖供应链、中台、仓储等多个部门</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-clock"></i>
+                                <span><strong>定时任务体系</strong>：建立完整的定时任务体系，实现24/7全天候自动化运行，日均处理数据量超过10万条</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-sync-alt"></i>
+                                <span><strong>跨部门协作</strong>：成功实施供应链与中台数据同步、聚水潭数据维护、标签数据生成和上传、监控下架亏本订单等跨部门自动化流程</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-bell"></i>
+                                <span><strong>实时通知系统</strong>：搭建钉钉智能推送体系，程序运行结果通知体系，实现异常数据实时通知，提升问题响应速度</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>关键数据指标</span>
+                        </div>
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <div class="metric-value">76</div>
+                                <div class="metric-label">自动化流程数量</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">95%</div>
+                                <div class="metric-label">数据准确率</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">24/7</div>
+                                <div class="metric-label">全天候运行</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">10万+</div>
+                                <div class="metric-label">日均处理数据量</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">3400+</div>
+                                <div class="metric-label">单平台已上架款式数量</div>
+                            </div>
+                            <div class="metric-item">
+                                <div class="metric-value">3740h</div>
+                                <div class="metric-label">影刀代替人工已执行3740小时</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="metric-card">
-                    <div class="metric-title">迁移-总质量迁移</div>
-                    <div class="metric-value">运行28天</div>
-                    <div class="metric-desc">聚水潭整体数据迁移换列</div>
-                    <div class="metric-desc">迁移总质量数据到总质量（标称）列</div>
+                <div class="part-card">
+                    <div class="part-header">
+                        <div class="part-number">2</div>
+                        <div class="part-title">2026年运维与优化规划</div>
+                        <span class="progress-indicator status-planning">规划中</span>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-tools"></i>
+                            <span>运维策略</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span><strong>稳定性保障</strong>：建立流程运行健康监控体系，可视化展示运行结果到在线表格</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-search"></i>
+                                <span><strong>定期巡检</strong>：每日对所有自动化流程运行结果进行审核查验，校正流程数据准确性</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-history"></i>
+                                <span><strong>版本管理</strong>：建立定时自动化流程运行错误异常通知到开发人员的钉钉，高响应改正流程异常情况</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-database"></i>
+                                <span><strong>代码备份与灾难恢复</strong>：关键流程版本代码进行备份，建立灾难恢复机制，确保30分钟内恢复关键流程</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-vial"></i>
+                                <span><strong>自动化测试流程</strong>：为关键流程编写自动化测试脚本，确保版本迭代中不引入新问题</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-rocket"></i>
+                            <span>优化方向</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-bolt"></i>
+                                <span><strong>性能优化</strong>：针对高频流程进行性能调优，提高整体运行稳定性并提升执行效率30%以上</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-robot"></i>
+                                <span><strong>远程决策化升级</strong>：引入钉钉远程干预模块，使流程具备一定的远程操作能力</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-clipboard-check"></i>
+                                <span><strong>标准化建设</strong>：制定自动化流程开发规范，统一代码结构封装称代码块，降低维护成本</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-chart-pie"></i>
+                                <span><strong>价值评估模型</strong>：建立自动化流程价值量化体系，评估每个流程节省的时间/成本，指导优化优先级</span>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
-
-                <div class="metric-card">
-                    <div class="metric-title">筛查-找金取消订单通知</div>
-                    <div class="metric-value">运行40天</div>
-                    <div class="metric-desc">一个定时任务</div>
-                    <div class="metric-desc">每天 15:00</div>
-                </div>
-
             </div>
         </div>
         
-        <div class="section" id="projects-section">
+        <div class="section" id="part2-section">
             <div class="section-title">
-                <i class="fas fa-tasks"></i>
-                <h2>流程步骤及规则介绍</h2>
+                <i class="fas fa-sitemap"></i>
+                <h2>第二部分：业务流程深度了解与主动自动化推进</h2>
+                <span class="progress-indicator status-planning">规划中</span>
             </div>
             
-            <div class="project">
-                <div class="project-header">
-                    <div class="project-title">下架-价格预警商品下架</div>
-                    <div class="project-status status-completed">已完成</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：</span>
-                        <span>版本14 发布时间：2025.11.22</span>
+            <div class="part-container">
+                <div class="part-card">
+                    <div class="part-header">
+                        <div class="part-number">1</div>
+                        <div class="part-title">从被动接受到主动深挖的转变策略</div>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + 钉钉协议 + Python</span>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-binoculars"></i>
+                            <span>业务流程深度分析</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-users"></i>
+                                <span><strong>跨部门轮岗与调研</strong>：计划深入业务部门，了解其核心业务流程与痛点，形成调研报告</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-comments"></i>
+                                <span><strong>需求主动挖掘机制</strong>：建立定期沟通机制，积极推动主管与各部门负责人探讨流程优化的可能性</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span><strong>创新提案与价值评估</strong>：发现痛点后提交自动化创新提案，附带ROI分析，推动公司流程自动化进程</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-comment-dots"></i>
+                                <span><strong>流程使用反馈闭环</strong>：积极听取流程使用同事的使用体验并收集反馈意见并优化，形成持续改进循环</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>全天候运行</span>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-project-diagram"></i>
+                            <span>全面自动化推进计划</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-warehouse"></i>
+                                <span><strong>仓储物流自动化</strong>：深入研究仓储管理系统，开发入库、出库、盘点等环节的自动化流程，目标节省人力40%</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span><strong>电商运营自动化</strong>：拓展至更多电商平台（京东、天猫等），实现全平台商品管理、订单处理、客服自动化</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span><strong>数据分析自动化</strong>：构建自动化报表体系，实现关键业务指标的自动计算、可视化与异常预警</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span><strong>财务流程自动化</strong>：探索财务对账、报销审核、发票处理等财务流程的自动化可能性</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-headset"></i>
+                                <span><strong>人事流程自动化</strong>：研究简历初审评审打分机制，辅助人才引进并落地的实行</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>每天 全天候运行监控下架 下架后 推送至钉钉群聊</span>
-                    </div>
-                </div>
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>配备了持久化参数信息，用来记录上次配置的参数避免重复耗时的配置操作</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>配置响应钉钉回调请求，有权限的管理员可通过钉钉发送命令自定义配置参数</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>监控 各个店铺 当天的价格预警工单 并提取参数平台商品id进行下架处理</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>下架后 通知到钉钉群聊 产品，采购对接群 通知信息：店铺名称，店铺商品id，告知信息</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project">
-                <div class="project-header">
-                    <div class="project-title">迁移-总质量迁移</div>
-                    <div class="project-status status-completed">已完成</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：</span>
-                        <span>版本5 发布时间：2025.11.18</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + MultipartEncoder + Python</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>按需执行</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>首先从聚水潭-库存-采购入库中 勾选对应的入库单号-导出勾选单据(唯一码)</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>读取唯一码数据与总质量数据 将总质量列数据迁移到总质量（标称）一列</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>选择导出对应的入库单，导入更新唯一码明细 对应入库单号的唯一码只能用单独表格导入</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>内含其他入库单的唯一码无法同时导入 将更新的导入模板导入即可</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>入库单内商品名称只要出现手表二字的唯一码，统一略过整个入库单，即此入库单信息无需迁移</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>最后 将导出的唯一码明细，用入库单号命名文件，最后统一收纳至一个文件夹内</span>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>成果展示与价值证明</span>
+                        </div>
+                        <div class="demo-grid">
+                            <div class="demo-item">
+                                <div class="demo-title">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>自动化潜力报告</span>
+                                </div>
+                                <p>各部门自动化潜力分析报告，识别高ROI自动化机会点</p>
+                            </div>
+                            <div class="demo-item">
+                                <div class="demo-title">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>自动化ROI预估开发时效</span>
+                                </div>
+                                <p>预估自动化ROI提案的时间/成本节省价值</p>
+                            </div>
+                            <div class="demo-item">
+                                <div class="demo-title">
+                                    <i class="fas fa-trophy"></i>
+                                    <span>成功案例库</span>
+                                </div>
+                                <p>建立自动化成功案例库，展示最佳实践，促进跨部门学习与推广</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-            <div class="project">
-                <div class="project-header">
-                    <div class="project-title">筛查-找金取消订单通知</div>
-                    <div class="project-status status-completed">已完成</div>
-                </div>
-                
-                <div class="project-details">
-                    <div class="detail-item">
-                        <span class="detail-label">程序版本：</span>
-                        <span>版本1 发布时间：2025.11.1</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + 爬虫 + 协议</span>
-                    </div>
-                    <div class="detail-item">
-                        <span class="detail-label">执行频率：</span>
-                        <span>每天的中午15:00</span>
-                    </div>
-                </div>
-                
-                <div class="progress-container">
-                    <div class="progress-info">
-                        <span>项目进度</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" data-width="100"></div>
-                    </div>
-                </div>
-                
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>每天 每天的中午15:00 推送至钉钉群聊 审单复核</span>
-                    </div>
-                </div>
-                <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>首先获取找金的登录信息 并获取全部订单 排除非今日订单 目标状态为：已取消</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>模拟请求发送详情回去返回值 提取订单号</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>获取订单号后 通知到钉钉群聊审单复核@邱娟 @补彩霞（下单员）用于从新下单</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
         
-        <div class="section" id="issues-section">
+        <div class="section" id="part3-section">
+            <div class="section-title">
+                <i class="fas fa-laptop-code"></i>
+                <h2>第三部分：技术领域拓展与能力提升</h2>
+                <span class="progress-indicator status-in-progress">进行中</span>
+            </div>
+            
+            <div class="part-container">
+                <div class="part-card">
+                    <div class="part-header">
+                        <div class="part-number">1</div>
+                        <div class="part-title">新技术领域学习与拓展</div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>技术能力拓展方向</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-code"></i>
+                                <span><strong>Python高级开发</strong>：深入学习Python高级特性，掌握多线程、异步编程、数据处理库等，提升复杂场景解决能力</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-database"></i>
+                                <span><strong>数据库优化与管理</strong>：学习SQL优化、数据库设计、分布式数据库等高级数据库知识，提升数据处理效率</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-cloud"></i>
+                                <span><strong>云服务与API集成</strong>：掌握AWS/Azure/阿里云等云服务，学习微服务架构与API设计，提升系统集成能力</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-brain"></i>
+                                <span><strong>AI与机器学习应用</strong>：探索AI在自动化中的应用（如智能分类、预测分析）</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <span><strong>前端技术与可视化</strong>：学习基础前端开发，能够开发简单的管理界面、可视化看板和仪表盘</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-robot"></i>
+                                <span><strong>影刀新功能探索</strong>：持续跟踪影刀平台新功能（如AI模块、新API），保持技术前瞻性和应用领先性</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-layer-group"></i>
+                                <span><strong>低代码平台对比研究</strong>：研究其他低代码/无代码平台，拓宽解决方案视野和技术选型能力</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-book"></i>
+                            <span>学习计划与资源</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-certificate"></i>
+                                <span><strong>认证与资格目标</strong>：获取影刀认证工程师高级认证，打造社区高级技术Title</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-users"></i>
+                                <span><strong>技术社区深度参与</strong>：积极参与官方技术群、社区论坛，每季度分享1-2篇技术实践文章，建立个人社区技术标签</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section" id="part4-section">
             <div class="section-title">
                 <i class="fas fa-exclamation-triangle"></i>
-                <h2>问题与解决方案</h2>
+                <h2>第四部分：风险评估与应对策略</h2>
+                <span class="progress-indicator status-planning">规划中</span>
             </div>
             
-            <table class="issues-table">
-                <thead>
-                    <tr>
-                        <th>问题描述</th>
-                        <th>影响范围</th>
-                        <th>解决方案</th>
-                        <th>优先级</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>聚水潭下载表格信息偶尔需要接受验证码验证</td>
-                        <td class="priority-medium">影响流程运行</td>
-                        <td>账号归属号码进行验证重新执行</td>
-                        <td class="priority-medium">中</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="section" id="plan-section">
-            <div class="section-title">
-                <i class="fas fa-road"></i>
-                <h2>后续工作计划</h2>
-            </div>
-            
-            <div class="next-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-title">继续跟进中台部门流程的更新和维护</div>
-                        <div>解决日常上架任务中所产生的突发问题</div>
-                        <div>开发新排版图包的自动化流程</div>
+            <div class="part-container">
+                <div class="part-card">
+                    <div class="part-header">
+                        <div class="part-number">1</div>
+                        <div class="part-title">主要风险识别与应对方案</div>
                     </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-title">继续跟进供应链部门流程的更新和维护</div>
-                        <div>实现供应链至聚水潭的数据准确性</div>
-                        <div>替代人工重复耗时易错的流程步骤</div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-skull-crossbones"></i>
+                            <span>主要风险识别</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-code-branch"></i>
+                                <span><strong>技术依赖风险</strong>：影刀平台更新可能导致现有流程不兼容；第三方API变更影响集成流程</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-user-clock"></i>
+                                <span><strong>业务变动风险</strong>：业务逻辑频繁变更，导致自动化流程需持续调整，增加维护成本</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-users-slash"></i>
+                                <span><strong>协作阻力风险</strong>：部分部门对自动化接受度低，存在变革阻力，影响自动化推进</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-server"></i>
+                                <span><strong>系统稳定性风险</strong>：关键系统故障（如ERP、WMS）导致自动化流程大面积失效</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-brain"></i>
+                                <span><strong>技术能力瓶颈</strong>：复杂场景超出当前技术能力范围，影响项目交付进度和质量</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-title">开发供应链质检部门自动化流程</div>
-                        <div>等待主管确定流程</div>
+                    
+                    <div class="content-section">
+                        <div class="content-title">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>应对策略与预防措施</span>
+                        </div>
+                        <div class="content-list">
+                            <div class="list-item">
+                                <i class="fas fa-comment-dots"></i>
+                                <span><strong>业务变动应对</strong>：建立变更沟通机制，提前获知业务变更计划；设计灵活可配置的自动化流程，减少修改成本</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-handshake"></i>
+                                <span><strong>技术风险应对</strong>：关键流程保留多版本，建立回归测试体系；对第三方API集成增加容错机制和备用方案</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-redo"></i>
+                                <span><strong>系统稳定性应对</strong>：建立系统健康监控，及时发现异常；设计降级方案，关键功能有手动备用流程；定期进行容灾演练</span>
+                            </div>
+                            <div class="list-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span><strong>能力瓶颈应对</strong>：建立外部技术大拿人脉圈，提升自己的开发眼界；复杂项目拆分为小阶段，降低实施难度</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -957,30 +1304,143 @@
         
         <div class="section" id="summary-section">
             <div class="section-title">
-                <i class="fas fa-file-signature"></i>
-                <h2>总结与概述</h2>
+                <i class="fas fa-flag-checkered"></i>
+                <h2>总体目标、资源需求与执行保障</h2>
+                <span class="progress-indicator status-planning">规划中</span>
             </div>
             
-            <div class="summary">
-                <div class="summary-title">本月工作概述</div>
-                <div class="summary-content">
-                    <p>主要解决供应链审单部门流程开发，和聚水潭大数据量的数据的备份和迁移</p>
-                    <p>解决价格预警工单的全天候监控以及高响应高执行，以及对二四小时不间断运行的流程的日志查看和参数修改</p>
-                    <p>实现了通过钉钉发送消息命令来实时操作程序的运行，配置了操作权限 安全可靠</p>
-                    <p>通过协议对聚水潭所有数据进行质量到标称列的数据迁移和整体数据的备份</p>
-                    <p>通过爬虫协议仿制登录请求，获取登录信息，监控我的订单，捕获取消订单，推送至审单群 使其及时重新下单</p>
+            <div class="part-card">
+                <div class="content-section">
+                    <div class="content-title">
+                        <i class="fas fa-bullseye"></i>
+                        <span>2026年总体目标与关键成果指标（KPI）</span>
+                    </div>
+                    <div class="content-list">
+                        <div class="list-item">
+                            <i class="fas fa-check-double"></i>
+                            <span><strong>运维稳定性目标</strong>：确保现有自动化流程99.5%以上的稳定运行率，实现零重大故障，MTTR（平均修复时间）<30分钟</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <span><strong>业务覆盖扩展目标</strong>：将自动化流程覆盖范围扩展至新业务领域</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span><strong>效率提升目标</strong>：通过自动化为公司节省至少6000小时/年的人工操作时间，ROI达到500%以上</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-rocket"></i>
+                            <span><strong>技术能力提升目标</strong>：掌握3-4项新技术并成功应用于实际业务场景，获得至少2项专业认证</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="signature">
-                <div class="signature-box">
-                    <div class="signature-label">谢佳豪 | 影刀自动化工程师</div>
+                
+                <div class="content-section">
+                    <div class="content-title">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>执行保障措施</span>
+                    </div>
+                    <div class="content-list">
+                        <div class="list-item">
+                            <i class="fas fa-tasks"></i>
+                            <span><strong>敏捷项目管理</strong>：采用敏捷开发方法，将大项目拆解为可执行的2周迭代，确保按时交付和快速响应变化</span>
+                        </div>
+                        <div class="list-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span><strong>定期复盘与调整</strong>：定时进行计划复盘，根据实际情况调整目标，确保计划的灵活性和可行性</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="roadmap-container">
+                    <div class="roadmap-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>2026年关键里程碑路线图</span>
+                    </div>
+                    <div class="roadmap">
+                        <div class="roadmap-quarter">
+                            <div class="quarter-title">第一季度：基础夯实 (1-3月)</div>
+                            <div class="quarter-items">
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>完成运维监控体系搭建，稳定运行率>99%</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>完成2个业务部门深度调研，输出自动化潜力报告</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Python高级特性学习完成，应用于实际项目</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-quarter">
+                            <div class="quarter-title">第二季度：能力提升 (4-6月)</div>
+                            <div class="quarter-items">
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>远程决策化功能上线，覆盖若干个关键流程</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>拓展1个新业务领域自动化，新增若干个流程</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>获得影刀高级认证，发表第1篇技术文章</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-quarter">
+                            <div class="quarter-title">第三季度：深入拓展 (7-9月)</div>
+                            <div class="quarter-items">
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>性能优化完成，整体效率提升25%</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>拓展第2个新业务领域，新增若干个流程</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>AI技术初步应用，实现1个智能自动化场景</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="roadmap-quarter">
+                            <div class="quarter-title">第四季度：成果巩固 (10-12月)</div>
+                            <div class="quarter-items">
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>年度目标全面达成，稳定运行率>99.5%</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>节省人工时间突破6000小时，ROI达标</span>
+                                </div>
+                                <div class="quarter-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>输出年度总结报告，制定2027年规划</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="signature">
+                    <div class="signature-box">
+                        <div class="signature-label">谢佳豪 | 影刀自动化工程师</div>
+                        <p style="margin-top: 10px; color: #666; font-size: 0.9rem;">计划报告完成于：2025/12/15 星期一</p>
+                    </div>
                 </div>
             </div>
         </div>
         
         <footer>
-            <p>© 2025 ISYOU私有贸易公司 | 本报告数据仅用于内部工作汇报</p>
+            <p>本计划仅为内部工作规划文档，用于规划报告2026年工作方向</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">© 2025-2026 ISYOU私有贸易公司</p>
         </footer>
     </div>
     
@@ -993,17 +1453,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
-                        // 处理该section内的所有进度条
-                        const progressFills = entry.target.querySelectorAll('.progress-fill[data-width]');
-                        progressFills.forEach(progressFill => {
-                            const width = progressFill.getAttribute('data-width');
-                            // 确保动画只执行一次
-                            if (!progressFill.classList.contains('animated')) {
-                                progressFill.style.width = width + '%';
-                                progressFill.classList.add('animated');
-                            }
-                        });
                     }
                 });
             }, { threshold: 0.1 });
@@ -1012,69 +1461,67 @@
                 observer.observe(section);
             });
             
-            // 初始化图表
-            initCharts();
+            // 创建粒子背景
+            createParticles();
+            
+            // 创建闪烁光点
+            createSparkles();
         });
         
-        // 图表初始化
-        function initCharts() {
-            // 自动化流程分布图
-            const automationCtx = document.getElementById('automationChart').getContext('2d');
-            new Chart(automationCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['未上架', '已上架 [天猫(中金，中珠)，拼多多(中金，中珠)]'],
-                    datasets: [{
-                        data: [1200, 400],
-                        backgroundColor: ['#1a6dcc', '#0d4a9e'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        },
-                        title: {
-                            display: false
-                        }
-                    },
-                    animation: {
-                        animateRotate: true,
-                        animateScale: true
-                    }
-                }
-            });
+        // 创建粒子背景
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 30;
             
-            // 工时节省趋势图
-            const hoursCtx = document.getElementById('hoursChart').getContext('2d');
-            new Chart(hoursCtx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['天猫中国黄金', '天猫中国珠宝','拼多多中国黄金', '拼多多中国珠宝'],
-                    datasets: [{
-                        data: [100, 100, 100, 100],
-                        backgroundColor: ['#1a6dcc', '#0d4a9e', '#C71585', '#DDA0DD'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'bottom'
-                        },
-                        title: {
-                            display: false
-                        }
-                    },
-                    animation: {
-                        animateRotate: true,
-                        animateScale: true
-                    }
-                }
-            });
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // 随机大小
+                const size = Math.random() * 4 + 1;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // 随机位置
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // 随机透明度
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                
+                // 随机动画
+                const duration = Math.random() * 20 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `floatElement ${duration}s ease-in-out ${delay}s infinite`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // 创建闪烁光点
+        function createSparkles() {
+            const header = document.querySelector('header');
+            const sparkleCount = 15;
+            
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('sparkle');
+                
+                // 随机大小
+                const size = Math.random() * 4 + 1;
+                sparkle.style.width = `${size}px`;
+                sparkle.style.height = `${size}px`;
+                
+                // 随机位置
+                sparkle.style.left = `${Math.random() * 100}%`;
+                sparkle.style.top = `${Math.random() * 100}%`;
+                
+                // 随机延迟
+                const delay = Math.random() * 2;
+                sparkle.style.animationDelay = `${delay}s`;
+                
+                header.appendChild(sparkle);
+            }
         }
     </script>
 </body>
