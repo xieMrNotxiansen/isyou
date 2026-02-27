@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
-        
+
         body {
             background: linear-gradient(135deg, #f5f9ff 0%, #e8f1fc 100%);
             color: #333;
@@ -20,7 +21,7 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 20px auto;
@@ -33,14 +34,14 @@
             animation: fadeInUp 0.8s forwards 0.3s;
             position: relative;
         }
-        
+
         @keyframes fadeInUp {
             to {
                 transform: translateY(0);
                 opacity: 1;
             }
         }
-        
+
         /* 头部动效优化 */
         header {
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
@@ -51,14 +52,14 @@
             overflow: hidden;
             min-height: 300px;
         }
-        
+
         .header-content {
             max-width: 900px;
             margin: 0 auto;
             position: relative;
             z-index: 3;
         }
-        
+
         /* 粒子背景动画 */
         .particles-container {
             position: absolute;
@@ -68,13 +69,13 @@
             height: 100%;
             z-index: 1;
         }
-        
+
         .particle {
             position: absolute;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
         }
-        
+
         /* 动态网格背景 */
         .header-bg {
             position: absolute;
@@ -82,23 +83,24 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 30px 30px,
-                linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px) 0 0 / 30px 30px;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 30px 30px,
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px) 0 0 / 30px 30px;
             z-index: 1;
             opacity: 0.3;
             animation: gridMove 20s linear infinite;
         }
-        
+
         @keyframes gridMove {
             0% {
                 transform: translate(0, 0);
             }
+
             100% {
                 transform: translate(30px, 30px);
             }
         }
-        
+
         /* 光晕效果 */
         .glow-effect {
             position: absolute;
@@ -107,23 +109,26 @@
             transform: translate(-50%, -50%);
             width: 80%;
             height: 80%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
             border-radius: 50%;
             z-index: 1;
             animation: pulseGlow 4s ease-in-out infinite;
         }
-        
+
         @keyframes pulseGlow {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0.3;
                 transform: translate(-50%, -50%) scale(1);
             }
+
             50% {
                 opacity: 0.5;
                 transform: translate(-50%, -50%) scale(1.1);
             }
         }
-        
+
         /* 标题动画效果 */
         h1 {
             font-size: 2.8rem;
@@ -137,18 +142,19 @@
             opacity: 0;
             transform: translateY(30px);
         }
-        
+
         @keyframes titleReveal {
             0% {
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* 副标题动画 */
         .subtitle {
             font-size: 1.3rem;
@@ -161,18 +167,19 @@
             opacity: 0;
             transform: translateY(20px);
         }
-        
+
         @keyframes subtitleReveal {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         /* 信息卡片动画 */
         .report-info {
             display: flex;
@@ -190,18 +197,19 @@
             opacity: 0;
             transform: translateY(20px);
         }
-        
+
         @keyframes infoReveal {
             0% {
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .info-item {
             display: flex;
             align-items: center;
@@ -212,29 +220,29 @@
             border-radius: 8px;
             transition: all 0.3s ease;
         }
-        
+
         .info-item:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
+
         .info-item i {
             font-size: 1.3rem;
             transition: transform 0.3s ease;
         }
-        
+
         .info-item:hover i {
             transform: scale(1.2);
         }
-        
+
         /* 浮动装饰元素 */
         .floating-element {
             position: absolute;
             z-index: 2;
             opacity: 0.1;
         }
-        
+
         .floating-element:nth-child(1) {
             top: 20%;
             left: 10%;
@@ -244,7 +252,7 @@
             border-radius: 50%;
             animation: floatElement 15s ease-in-out infinite;
         }
-        
+
         .floating-element:nth-child(2) {
             top: 60%;
             right: 15%;
@@ -254,7 +262,7 @@
             border-radius: 10px;
             animation: floatElement 20s ease-in-out infinite reverse;
         }
-        
+
         .floating-element:nth-child(3) {
             bottom: 30%;
             left: 20%;
@@ -264,22 +272,27 @@
             border-radius: 50%;
             animation: floatElement 18s ease-in-out infinite;
         }
-        
+
         @keyframes floatElement {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translate(0, 0) rotate(0deg);
             }
+
             25% {
                 transform: translate(20px, -20px) rotate(90deg);
             }
+
             50% {
                 transform: translate(0, -40px) rotate(180deg);
             }
+
             75% {
                 transform: translate(-20px, -20px) rotate(270deg);
             }
         }
-        
+
         /* 闪烁的光点 */
         .sparkle {
             position: absolute;
@@ -288,18 +301,21 @@
             z-index: 2;
             animation: sparkle 2s ease-in-out infinite;
         }
-        
+
         @keyframes sparkle {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 0;
                 transform: scale(0);
             }
+
             50% {
                 opacity: 1;
                 transform: scale(1);
             }
         }
-        
+
         /* 动态进度条 */
         .progress-bar {
             position: absolute;
@@ -311,23 +327,24 @@
             z-index: 3;
             overflow: hidden;
         }
-        
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(to right, #4CAF50, #8BC34A);
             width: 0%;
             animation: progressFill 2s ease-out 1s forwards;
         }
-        
+
         @keyframes progressFill {
             0% {
                 width: 0%;
             }
+
             100% {
                 width: 100%;
             }
         }
-        
+
         /* 标题装饰线 */
         .title-underline {
             height: 3px;
@@ -336,16 +353,17 @@
             margin: 10px auto 0;
             animation: underlineExpand 1.2s ease-out 0.8s forwards;
         }
-        
+
         @keyframes underlineExpand {
             0% {
                 width: 0;
             }
+
             100% {
                 width: 300px;
             }
         }
-        
+
         /* 页面其他部分样式 */
         .section {
             padding: 40px 50px;
@@ -354,12 +372,12 @@
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
-        
+
         .section.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .section-title {
             display: flex;
             align-items: center;
@@ -371,7 +389,7 @@
             position: relative;
             padding-bottom: 15px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -382,7 +400,7 @@
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
             border-radius: 2px;
         }
-        
+
         .section-title i {
             background: #e6f0ff;
             width: 50px;
@@ -394,14 +412,14 @@
             font-size: 1.4rem;
             box-shadow: 0 4px 10px rgba(26, 109, 204, 0.15);
         }
-        
+
         .metrics {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin-bottom: 40px;
         }
-        
+
         .metric-card {
             background: #f8fafd;
             border-radius: 12px;
@@ -412,12 +430,12 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .metric-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 25px rgba(26, 109, 204, 0.15);
         }
-        
+
         .metric-card::before {
             content: '';
             position: absolute;
@@ -428,7 +446,7 @@
             background: linear-gradient(135deg, rgba(26, 109, 204, 0.03) 0%, transparent 100%);
             z-index: 0;
         }
-        
+
         .metric-title {
             font-size: 1.05rem;
             color: #555;
@@ -437,7 +455,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .metric-value {
             font-size: 2.8rem;
             font-weight: 800;
@@ -447,7 +465,7 @@
             z-index: 1;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .metric-desc {
             font-size: 1rem;
             color: #666;
@@ -456,7 +474,7 @@
             z-index: 1;
             line-height: 1.5;
         }
-        
+
         .project {
             background: #f9fbfe;
             border-radius: 12px;
@@ -468,12 +486,12 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .project:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(26, 109, 204, 0.15);
         }
-        
+
         .project-header {
             display: flex;
             justify-content: space-between;
@@ -484,13 +502,13 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .project-title {
             font-size: 1.5rem;
             font-weight: 700;
             color: #1a3e78;
         }
-        
+
         .project-status {
             padding: 10px 25px;
             border-radius: 20px;
@@ -498,17 +516,17 @@
             font-weight: 600;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
-        
+
         .status-completed {
             background: linear-gradient(to right, #0a8f5e, #06c281);
             color: white;
         }
-        
+
         .status-ongoing {
             background: linear-gradient(to right, #d48806, #ffb300);
             color: white;
         }
-        
+
         .project-details {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -517,26 +535,26 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .detail-item {
             display: flex;
             gap: 12px;
             align-items: center;
         }
-        
+
         .detail-label {
             font-weight: 600;
             color: #555;
             min-width: 100px;
             font-size: 1.1rem;
         }
-        
+
         .progress-container {
             margin: 30px 0;
             position: relative;
             z-index: 1;
         }
-        
+
         .progress-info {
             display: flex;
             justify-content: space-between;
@@ -544,14 +562,14 @@
             font-size: 1rem;
             color: #666;
         }
-        
+
         .project-progress-bar {
             height: 12px;
             background: #e0e7f3;
             border-radius: 6px;
             overflow: hidden;
         }
-        
+
         .project-progress-fill {
             height: 100%;
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
@@ -559,7 +577,7 @@
             width: 0;
             transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
         }
-        
+
         .benefits {
             background: linear-gradient(to right, rgba(26, 109, 204, 0.05), rgba(13, 74, 158, 0.03));
             border-radius: 12px;
@@ -569,7 +587,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .benefits-title {
             font-weight: 700;
             margin-bottom: 20px;
@@ -579,7 +597,7 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .benefit-item {
             display: flex;
             align-items: flex-start;
@@ -590,20 +608,20 @@
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.7);
         }
-        
+
         .benefit-item:hover {
             background: white;
             transform: translateX(5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
-        
+
         .benefit-item i {
             color: #1a6dcc;
             margin-top: 5px;
             font-size: 1.1rem;
             flex-shrink: 0;
         }
-        
+
         .issues-table {
             width: 100%;
             border-collapse: collapse;
@@ -612,7 +630,7 @@
             border-radius: 12px;
             overflow: hidden;
         }
-        
+
         .issues-table th {
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
             text-align: left;
@@ -621,45 +639,45 @@
             font-weight: 600;
             font-size: 1.1rem;
         }
-        
+
         .issues-table td {
             padding: 20px;
             border-bottom: 1px solid #eee;
             transition: all 0.3s ease;
         }
-        
+
         .issues-table tr {
             transition: all 0.3s ease;
         }
-        
+
         .issues-table tr:hover {
             background-color: #f0f7ff;
         }
-        
+
         .issues-table tr:hover td {
             transform: translateX(5px);
         }
-        
+
         .issues-table tr:nth-child(even) {
             background: #f9fbfe;
         }
-        
+
         .priority-high {
             color: #ff4d4f;
             font-weight: 700;
         }
-        
+
         .priority-medium {
             color: #fa8c16;
             font-weight: 700;
         }
-        
+
         .next-steps {
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
-        
+
         .step {
             display: flex;
             gap: 20px;
@@ -671,13 +689,13 @@
             transition: all 0.3s ease;
             border-left: 4px solid #1a6dcc;
         }
-        
+
         .step:hover {
             transform: translateX(10px);
             background: linear-gradient(to right, #f8fafd, #edf4ff);
             box-shadow: 0 10px 25px rgba(26, 109, 204, 0.1);
         }
-        
+
         .step-number {
             background: linear-gradient(to bottom right, #1a6dcc, #0d4a9e);
             color: white;
@@ -692,18 +710,18 @@
             font-size: 1.2rem;
             box-shadow: 0 4px 10px rgba(26, 109, 204, 0.3);
         }
-        
+
         .step-content {
             flex: 1;
         }
-        
+
         .step-title {
             font-weight: 700;
             margin-bottom: 15px;
             color: #1a3e78;
             font-size: 1.3rem;
         }
-        
+
         .signature {
             display: flex;
             justify-content: flex-end;
@@ -711,7 +729,7 @@
             padding-top: 40px;
             border-top: 2px dashed #dde6f0;
         }
-        
+
         .signature-box {
             text-align: center;
             padding: 25px 50px;
@@ -721,7 +739,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .signature-box::before {
             content: '';
             position: absolute;
@@ -731,14 +749,14 @@
             height: 4px;
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
         }
-        
+
         .signature-label {
             margin-top: 15px;
             font-weight: 600;
             color: #1a6dcc;
             font-size: 1.3rem;
         }
-        
+
         .summary {
             background: linear-gradient(to right, #f0f7ff, #e6f0ff);
             border-radius: 12px;
@@ -747,7 +765,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .summary::before {
             content: '';
             position: absolute;
@@ -757,7 +775,7 @@
             height: 100%;
             background: linear-gradient(to bottom, #1a6dcc, #0d4a9e);
         }
-        
+
         .summary-title {
             font-size: 1.6rem;
             color: #1a3e78;
@@ -766,7 +784,7 @@
             font-weight: 700;
             position: relative;
         }
-        
+
         .summary-title::after {
             content: '';
             position: absolute;
@@ -778,20 +796,20 @@
             background: linear-gradient(to right, #1a6dcc, #0d4a9e);
             border-radius: 3px;
         }
-        
+
         .summary-content {
             line-height: 1.8;
             font-size: 1.2rem;
             position: relative;
             z-index: 1;
         }
-        
+
         .summary-content p {
             margin-bottom: 20px;
             position: relative;
             padding-left: 25px;
         }
-        
+
         .summary-content p::before {
             content: '•';
             position: absolute;
@@ -801,7 +819,7 @@
             font-weight: bold;
             font-size: 1.5rem;
         }
-        
+
         footer {
             text-align: center;
             padding: 30px;
@@ -810,7 +828,7 @@
             background: linear-gradient(to right, #f0f5ff, #e6f0ff);
             font-weight: 500;
         }
-        
+
         /* 新增的进度追踪样式 */
         .progress-indicator {
             display: inline-flex;
@@ -823,82 +841,96 @@
             margin-left: 15px;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
             0% {
                 box-shadow: 0 0 0 0 rgba(26, 109, 204, 0.2);
             }
+
             70% {
                 box-shadow: 0 0 0 8px rgba(26, 109, 204, 0);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(26, 109, 204, 0);
             }
         }
-        
-        .status-planning { background: #e3f2fd; color: #1565c0; }
-        .status-in-progress { background: #fff3e0; color: #ef6c00; }
-        .status-completed { background: #e8f5e9; color: #2e7d32; }
-        
+
+        .status-planning {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .status-in-progress {
+            background: #fff3e0;
+            color: #ef6c00;
+        }
+
+        .status-completed {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
         @media (max-width: 992px) {
             .container {
                 margin: 10px auto;
             }
-            
+
             header {
                 padding: 30px 25px;
                 min-height: 250px;
             }
-            
+
             h1 {
                 font-size: 2.2rem;
             }
-            
+
             .section {
                 padding: 30px;
             }
-            
+
             .title-underline {
                 width: 200px;
             }
-            
+
             .metric-value {
                 font-size: 2.4rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.8rem;
             }
-            
+
             .subtitle {
                 font-size: 1.1rem;
             }
-            
+
             .info-item {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .metrics {
                 grid-template-columns: 1fr;
             }
-            
+
             .section-title {
                 font-size: 1.4rem;
             }
-            
+
             .project-details {
                 grid-template-columns: 1fr;
             }
-            
+
             .title-underline {
                 width: 150px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <header>
@@ -906,18 +938,18 @@
             <div class="particles-container" id="particles-container"></div>
             <div class="header-bg"></div>
             <div class="glow-effect"></div>
-            
+
             <!-- 浮动装饰元素 -->
             <div class="floating-element"></div>
             <div class="floating-element"></div>
             <div class="floating-element"></div>
-            
+
             <!-- 头部内容 -->
             <div class="header-content">
                 <h1>ISYOU影刀自动化工程师工作成果月报</h1>
                 <div class="title-underline"></div>
                 <div class="subtitle">自动化流程优化与效率提升工作成果汇总</div>
-                
+
                 <div class="report-info">
                     <div class="info-item">
                         <i class="far fa-user"></i>
@@ -925,82 +957,82 @@
                     </div>
                     <div class="info-item">
                         <i class="far fa-calendar-alt"></i>
-                        <span>报告周期：2026年1月1日 - 2026年1月31日</span>
+                        <span>报告周期：2026年2月1日 - 2026年2月28日</span>
                     </div>
                     <div class="info-item">
                         <i class="far fa-file-alt"></i>
-                        <span>报告日期：2026年2月8日</span>
+                        <span>报告日期：2026年3月8日</span>
                     </div>
                 </div>
             </div>
-            
+
             <!-- 进度条 -->
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
         </header>
-        
+
         <div class="section" id="kpi-section">
             <div class="section-title">
                 <i class="fas fa-chart-line"></i>
                 <h2>关键绩效指标</h2>
                 <span class="progress-indicator status-completed">已完成</span>
             </div>
-            
+
             <div class="metrics">
-                
+
                 <div class="metric-card">
-                    <div class="metric-title">统计每月各店铺退货情况</div>
-                    <div class="metric-value">运行45天</div>
-                    <div class="metric-desc">统计全月的商品退货情况</div>
-                    <div class="metric-desc">钉钉对话模式响应查询数据</div>
-                </div>
-                
-                <div class="metric-card">
-                    <div class="metric-title">小豪找金更换条码到懒人自定化</div>
-                    <div class="metric-value">运行41天</div>
-                    <div class="metric-desc">筛查聚水潭所有小豪找金同款商品编码</div>
-                    <div class="metric-desc">讲同款商品编码添加到聚水潭懒人自动化</div>
+                    <div class="metric-title">监控-监控微信指令</div>
+                    <div class="metric-value">运行60天</div>
+                    <div class="metric-desc">全天监控微信消息并响应</div>
+                    <div class="metric-desc">用对话的形式下单，生成采购单 并通知对应群聊</div>
                 </div>
 
                 <div class="metric-card">
-                    <div class="metric-title">每月通知上月标签总数</div>
-                    <div class="metric-value">运行50天</div>
-                    <div class="metric-desc">统计上月中金标签生成上传的总数</div>
-                    <div class="metric-desc">每月一号推送至仓储和质检部门负责人</div>
+                    <div class="metric-title">监控-监控钉钉指令</div>
+                    <div class="metric-value">运行128天</div>
+                    <div class="metric-desc">全天监控微信消息并响应</div>
+                    <div class="metric-desc">全天监控亏本工单并下架</div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-title">统计-商品爆款统计并打标签</div>
+                    <div class="metric-value">运行56天</div>
+                    <div class="metric-desc">统计每月爆款商品并打标签</div>
+                    <div class="metric-desc">操作店铺：中金天猫，中珠天猫，中珠京东</div>
                 </div>
 
             </div>
         </div>
-        
+
         <div class="section" id="projects-section">
             <div class="section-title">
                 <i class="fas fa-tasks"></i>
                 <h2>流程步骤及规则介绍</h2>
                 <span class="progress-indicator status-completed">已完成</span>
             </div>
-            
+
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">统计每月各店铺退货情况</div>
+                    <div class="project-title">监控-监控微信指令</div>
                     <div class="project-status status-completed">已完成</div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：</span>
-                        <span>版本18 发布时间：2026.1.6</span>
+                        <span>版本44 发布时间：2026.2.26</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + 逆向 + Python</span>
+                        <span>影刀RPA + 微信逆向 + Python</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
                         <span>everyDay</span>
                     </div>
                 </div>
-                
+
                 <div class="progress-container">
                     <div class="progress-info">
                         <span>项目进度</span>
@@ -1010,104 +1042,91 @@
                         <div class="project-progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
+
                 <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>每月统计上月整月退货情况 处理统计数据订单约 2至3 万条左右</span>
+                        <span>每天 全天不间断运行</span>
                     </div>
                 </div>
                 <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>采用逆向技术无感操作全部流程 相较于传统处理表格数据 提速百分之50%，系统稳定性提升 30%</span>
+                        <span>采用逆向技术无感监控微信信息 提速质检部门 下单，审批速率 80% 无数据误差</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>筛选下单时间，指定全月（如10月、11月、12月），整月统计</span>
+                        <span>采购下单：监控微信命令：采购单+采购单号（例：采购单1882756）</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>标签排除特殊单，店铺筛选掉：线下，【鑫选】得物线下-中国珠宝-寄样，【鑫选】线下店铺-中国珠宝，【摇光】中珠京东入仓专用，【宇航】线下店铺-宇航借样，增加订单状态，已发货，排除特殊单</span>
+                        <span>使用指定下单聚水潭账号：18278349331BBB，密码：qazwsxedcrfv1234566</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>筛选商品编码：以下商品编码都不需要，批量删除</span>
+                        <span>供应商对应表格(点击跳转)：<a href="https://www.kdocs.cn/l/cpucHkak5rEx">鸿盛</a> <a
+                                href="https://www.kdocs.cn/l/ch4dIBBpulp8">周金发</a> <a
+                                href="https://www.kdocs.cn/l/cdsgPsFYEVLS">潮慕</a> <a
+                                href="https://www.kdocs.cn/l/cjb2CY5wF8RI">秋红</a> <a
+                                href="https://www.kdocs.cn/l/cmk9H35nbSS3">爱鑫隆银楼</a> <a
+                                href="https://www.kdocs.cn/l/co3dVmXRs8tS">玲小可</a> <a
+                                href="https://www.kdocs.cn/l/cpHEVZz9BZr1">爱鑫隆K金部</a> <a
+                                href="https://www.kdocs.cn/l/cqUlYSFEsbsX">悦格</a></span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            948464115345	一元入会链接</span>
+                        <span>根据不同供应商的表格去聚水潭查找数据填写至对应表格当前月份的Sheet页中</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            854607804109，798107622363，718829460441	补差价专用</span>
+                        <span>采购信息填写，采购单上数量是30件备注20件中金logo，分两行填写，一行30件不填写特殊字印，一行40件填写中金logo</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            1234	        1元补差价</span>
+                        <span>通知到每个供应商对应的微信群聊并艾特此供应商的负责人</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            1754146281317，1638104524995，1637001143734，1756556423383	【购买前须联系客服确认】补收差价专用商品</span>
+                        <span>采购单自动生成，审批自动生成：监控微信命令：审批+款式+件数+备注（例：审批 6900000000409+100+70件中金logo，30件中珠仓测试）</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>筛选店铺 统计每家店铺的总订单量，及退款状态中：成功退款+等待退款的单数</span>
+                        <span>商品普通资料里面搜索商品编码，勾选对应的商品编码，填写建议本次采购数，加入购物车 点开右下角购物车，商品编码搜索，勾选，新增采购单</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>退货单数量筛查：聚水潭——售后（退货退款），选择登记时间（指定全月），选择店铺（除唯品会以外的所有店铺），售后状态：已确认，售后分类：普通退货，原订单状态：已发货</span>
+                        <span>按照固定格式填写，固定，确认之后可以查看采购单信息跳转，将备注填写到采购明细备注中</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>将查询出来的售后订单，导出表格，将售后的内部单号，与订单中我们筛选出来的退货单的内部单号，进行匹配，以售后为准</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>新增唯品会店铺退货率查看方式：聚水潭——售后（退货退款），选择登记时间（指定全月），选择唯品会店铺（唯品会共两家店铺，一家一家查看），在售后分类一栏，仅统计普通退货，拒收退货不计入</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>统计返回表格：</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>每个店铺，订单总数，退款总数，退款占比</span>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>统计每个店铺的每个商品编码的订单总数，退款总数，退款占比，退款原因，每条退款原因的总数和占比</span>
+                        <span>根据上述条件，同步微信信息并返回采购单号 提醒下单员审核采购单</span>
                     </div>
                 </div>
             </div>
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">小豪找金更换条码到懒人自定化</div>
+                    <div class="project-title">监控-监控钉钉指令</div>
                     <div class="project-status status-completed">已完成</div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：</span>
-                        <span>版本3 发布时间：2025.12.28</span>
+                        <span>版本58 发布时间：2026.02.26</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + 逆向 + Python</span>
+                        <span>影刀RPA + 钉钉回调配置 + Python</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
                         <span>everyDay</span>
                     </div>
                 </div>
-                
+
                 <div class="progress-container">
                     <div class="progress-info">
                         <span>项目进度</span>
@@ -1117,35 +1136,106 @@
                         <div class="project-progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
+
                 <div class="benefits">
-                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 小豪找金更换条码到懒人自定化定时任务配置：</div>
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 监控-监控钉钉指令 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>每天 晚上21点零分运行程序 耗时约5分</span>
+                        <span>每天 全天不间断运行</span>
                     </div>
                 </div>
                 <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>商品-商品普通资料--商品简称填写同款-包含标签选择：找金，小豪，进行搜索</span>
+                        <span>监控价格预警工单，触发亏本订单马上下架此链接 防止亏损放大</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>搜索之后，商品简称有同款的，导出商品，提取   同款：后面  】前面的编码和之前导出的对比，有重复的删除</span>
+                        <span>逆向协议破解聚水潭工单请求 模拟工单请求定时检索当天的亏本订单</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>商品-订单-懒人自动化-自动懒人自动计划-已开启项目-根据固定商品替换公式换商品-点击商品替换公式</span>
+                        <span>清洗聚水潭返回的 JSON 数据 ，拿到平台商品ID 执行下架请求</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>找金小豪自动更换条码-选择商品输入（新模式）-添加一组-表格的商品在前面空格-提取的商品编码在后面一格</span>
+                        <span>入口：商品-店铺商品管理-店铺商品上下架-输入聚工单商品id-下架勾选商品</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>添加完成之后，点击确认，再点击保存</span>
+                        <span>已配置钉钉机器人操作，可通过机器人指令操作此全天不停机修改参数</span>
+                    </div>
+                </div>
+                <div class="benefits">
+                    <div class="benefits-title"><i class="fas fa-chart-pie"></i> 命令介绍：</div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>工单 开始/结束监控下架 ---当前为开启状态</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>工单 修改执行间隔时长|60s| ---当前60s 支持smhd单位（忽略大小写）</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>聚水潭 提取登录信息</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>运行安全 开启/关闭屏幕保护 ---当前开启状态</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>机器人 更改信息通知群聊|机器人地址| ---企业消息推送机器人的地址</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>日志 时间|下架记录 ---命令如：日志 2025-12-01|下架记录</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>计数 重置计数数值</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>融通金 获取所有合约码</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>融通金 查询昨日收盘价|合约码|</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>云配置 修改融通金同步时间|60s| ---当前60s 支持smhd单位（忽略大小写）</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>云配置 修改参数值|参数名称-参数值| ---命令如：云配置 修改参数值|7天日均销量在1至6件-5|</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>影刀 查询常规任务|任务名(为空查所有,允许模糊匹配)| ---命令如：影刀 查询常规任务|微信跟单|</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>影刀 刷新常规任务 ---更新任务重新执行刷新缓存，查询任务时默认缓存,缓存为空则自动刷新</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>影刀 立即执行任务|任务名(允许模糊匹配)|---命令如：影刀 立即执行任务|微信跟单|</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>影刀 查询正在执行和等待调度的任务列表</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>影刀 终止任务|任务名(允许模糊匹配)|---命令如：影刀 终止任务|微信跟单|</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>帮助</span>
                     </div>
                 </div>
             </div>
@@ -1153,25 +1243,25 @@
 
             <div class="project">
                 <div class="project-header">
-                    <div class="project-title">每月通知上月标签总数</div>
+                    <div class="project-title">统计-商品爆款统计并打标签</div>
                     <div class="project-status status-completed">已完成</div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="detail-item">
                         <span class="detail-label">程序版本：</span>
-                        <span>版本5 发布时间：2025.12.25</span>
+                        <span>版本8 发布时间：2025.02.26</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">技术栈：</span>
-                        <span>影刀RPA + MySql + 钉钉协议</span>
+                        <span>影刀RPA + 逆向 + 钉钉回调</span>
                     </div>
                     <div class="detail-item">
                         <span class="detail-label">执行频率：</span>
-                        <span>everyDay</span>
+                        <span>monthly</span>
                     </div>
                 </div>
-                
+
                 <div class="progress-container">
                     <div class="progress-info">
                         <span>项目进度</span>
@@ -1181,44 +1271,56 @@
                         <div class="project-progress-fill" data-width="100"></div>
                     </div>
                 </div>
-                
+
                 <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 定时任务配置：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>每月 一号09:00运行程序 分别推送至仓储和质检负责人</span>
+                        <span>每周统计一次，过去30天中金天猫，中珠天猫，中珠京东，三家店铺的商品爆款</span>
                     </div>
                 </div>
                 <div class="benefits">
                     <div class="benefits-title"><i class="fas fa-chart-pie"></i> 任务及流程简介：</div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>连接读取我们生成标签存储中金标签的数据库</span>
+                        <span>商品爆款标准：中金天猫：30天扣秒拍秒退top30，中珠天猫：30天扣秒拍秒退top15，中珠京东：30天扣秒拍秒退销量30以上</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>设置读取时间为上月正月</span>
+                        <span>统计聚水潭全月（30天滚动）订单已发货 排除特殊单，选择店铺：【梵雅】天猫-中国珠宝-鑫选专卖店，【严选】天猫-中国黄金-严选专卖店，【摇光】京东-中国珠宝-SINOGEM专卖店</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>检索整个数据库统计满足筛选条件的所有中金标签</span>
+                        <span>清洗无效订单数据并筛选排除赠品，注意：由于有组合条码，需分别去普通商品资料搜索其对应的款式编码，替换上</span>
                     </div>
                     <div class="benefit-item">
                         <i class="fas fa-check-circle"></i>
-                        <span>将数据按照特定格式同步发送给仓储和质检负责人用于统计标签数量</span>
+                        <span>（2）商品的款式编码一致，则我们可以将这两个合并，再补充一款凑够30款。</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>得出三家的爆款数据后，增加爆款标签 修改基础信息——追加标签——选择对应各店的标签</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>维护标签：每周统计一次，过去30天三家店铺的商品爆款，统计结果与上周爆款进行对比</span>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>如有新增商品，则为其增加标签，如某款商品在上周是爆款，本周统计时不是爆款，则删除其标签</span>
                     </div>
                 </div>
             </div>
 
         </div>
-        
+
         <div class="section" id="issues-section">
             <div class="section-title">
                 <i class="fas fa-exclamation-triangle"></i>
                 <h2>问题与解决方案</h2>
                 <span class="progress-indicator status-in-progress">已解决</span>
             </div>
-            
+
             <table class="issues-table">
                 <thead>
                     <tr>
@@ -1238,14 +1340,14 @@
                 </tbody>
             </table>
         </div>
-        
+
         <div class="section" id="plan-section">
             <div class="section-title">
                 <i class="fas fa-road"></i>
                 <h2>后续工作计划</h2>
                 <span class="progress-indicator status-planning">规划中</span>
             </div>
-            
+
             <div class="next-steps">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -1255,7 +1357,7 @@
                         <div>开发新排版图包的自动化流程</div>
                     </div>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
@@ -1264,65 +1366,65 @@
                         <div>替代人工重复耗时易错的流程步骤</div>
                     </div>
                 </div>
-                
+
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <div class="step-title">追加开发供应链质检部门自动化流程</div>
-                        <div>等待主管确定流程，点击查看：<a href="https://www.kdocs.cn/l/cjmolSPtvSCQ" target="_blank" rel="noopener noreferrer">工作任务表</a></div>
+                        <div>等待主管确定流程，点击查看：<a href="https://www.kdocs.cn/l/cjmolSPtvSCQ" target="_blank"
+                                rel="noopener noreferrer">工作任务表</a></div>
                     </div>
                 </div>
 
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <div class="step-title">开发封装微信指令集，钉钉指令集，WebSocket指令集</div>
-                        <div>用于后续流程开发时调用，便于统一维护和修改</div>
+                        <div class="step-title">延申并开发新的钉钉和微信指令</div>
+                        <div>全天候，高响应，立即执行，快结果</div>
+                        <div>使得聊聊天就可以完成指定任务，敏捷，准确</div>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="section" id="summary-section">
             <div class="section-title">
                 <i class="fas fa-file-signature"></i>
                 <h2>总结与概述</h2>
                 <span class="progress-indicator status-completed">已完成</span>
             </div>
-            
+
             <div class="summary">
                 <div class="summary-title">本月工作概述</div>
                 <div class="summary-content">
-                    <p>后续有关聚水潭流程开发将全部采用逆向无感技术，相较于传统技术，速度提升50%，稳定性和流畅性提升30%</p>
-                    <p>统计退货数据，将数据持久化存储，用于后续新增功能 钉钉对话模式查询数据</p>
-                    <p>成功解析聚水潭懒人自动化代码规则，使其可以无感填写同款数据进入机器人</p>
-                    <p>联通标签生成流程查询 MySql 数据库，使用高效 索引 方式筛选统计近 3 万条标签数据，省去仓储和质检统计流程</p>
-                    <p>准备筹建开发用于二十四小时监控的微信，钉钉，WebSocket通信 指令</p>
+                    <p>本月重心在 钉钉和微信的 对话模式，全天候，高相应，高执行，可以迅速处理执行问题</p>
+                    <p>将继续优化钉钉和微信命令，增加程序运行容错和预警通知</p>
+                    <p>增加爆款标签，用于用于备货数据提炼</p>
                 </div>
             </div>
-            
+
             <div class="signature">
                 <div class="signature-box">
                     <div class="signature-label">谢佳豪 | 影刀自动化工程师</div>
                 </div>
             </div>
         </div>
-        
+
         <footer>
             <p>© 2025 ISYOU私有贸易公司 | 本报告数据仅用于内部工作汇报</p>
         </footer>
     </div>
-    
+
     <script>
         // 页面滚动动画
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const sections = document.querySelectorAll('.section');
-            
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        
+
                         // 处理该section内的所有进度条
                         const progressFills = entry.target.querySelectorAll('.project-progress-fill[data-width]');
                         progressFills.forEach(progressFill => {
@@ -1336,73 +1438,74 @@
                     }
                 });
             }, { threshold: 0.1 });
-            
+
             sections.forEach(section => {
                 observer.observe(section);
             });
-            
+
             // 创建粒子背景
             createParticles();
-            
+
             // 创建闪烁光点
             createSparkles();
         });
-        
+
         // 创建粒子背景
         function createParticles() {
             const container = document.getElementById('particles-container');
             const particleCount = 30;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
-                
+
                 // 随机大小
                 const size = Math.random() * 4 + 1;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
-                
+
                 // 随机位置
                 particle.style.left = `${Math.random() * 100}%`;
                 particle.style.top = `${Math.random() * 100}%`;
-                
+
                 // 随机透明度
                 particle.style.opacity = Math.random() * 0.3 + 0.1;
-                
+
                 // 随机动画
                 const duration = Math.random() * 20 + 10;
                 const delay = Math.random() * 5;
                 particle.style.animation = `floatElement ${duration}s ease-in-out ${delay}s infinite`;
-                
+
                 container.appendChild(particle);
             }
         }
-        
+
         // 创建闪烁光点
         function createSparkles() {
             const header = document.querySelector('header');
             const sparkleCount = 15;
-            
+
             for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.classList.add('sparkle');
-                
+
                 // 随机大小
                 const size = Math.random() * 4 + 1;
                 sparkle.style.width = `${size}px`;
                 sparkle.style.height = `${size}px`;
-                
+
                 // 随机位置
                 sparkle.style.left = `${Math.random() * 100}%`;
                 sparkle.style.top = `${Math.random() * 100}%`;
-                
+
                 // 随机延迟
                 const delay = Math.random() * 2;
                 sparkle.style.animationDelay = `${delay}s`;
-                
+
                 header.appendChild(sparkle);
             }
         }
     </script>
 </body>
+
 </html>
